@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/14/理解JavaScript作用域/index.html">
 <meta property="og:site_name" content="楊陽さん">
 <meta property="og:description" content="什么是作用域作用域是你的代码在运行时，各个变量、函数和对象的可访问性。换句话说，作用域决定了你的代码里的变量和其他资源在各个区域中的可见性。 为什么需要作用域？最小访问原则那么限制变量的可见性，不允许你代码中所有的东西在任意地方都可用的好处是什么？其中一个优势，是作用域为你的代码提供了一个安全层级。计算机安全中，有个常规的原则是：用户只能访问他们当前需要的东西。">
-<meta property="og:updated_time" content="2017-06-19T13:57:20.329Z">
+<meta property="og:updated_time" content="2017-06-19T14:08:54.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解JavaScript作用域">
 <meta name="twitter:description" content="什么是作用域作用域是你的代码在运行时，各个变量、函数和对象的可访问性。换句话说，作用域决定了你的代码里的变量和其他资源在各个区域中的可见性。 为什么需要作用域？最小访问原则那么限制变量的可见性，不允许你代码中所有的东西在任意地方都可用的好处是什么？其中一个优势，是作用域为你的代码提供了一个安全层级。计算机安全中，有个常规的原则是：用户只能访问他们当前需要的东西。">
@@ -450,7 +450,8 @@
 <h3 style="color:red;">词法作用域</h3>
 
 <p>词法作用域的意思是在函数嵌套中，内层函数可以访问父级作用域的变量等资源。这意味着子函数词法绑定到了父级执行环境。词法作用域有事和静态作用域有关。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function grandfather() &#123;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">grandfather</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> name = <span class="string">'Hammad'</span>;</div><div class="line">  <span class="comment">//likes is not accessible here</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">parent</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//name is accessible here</span></div><div class="line">    <span class="comment">//likes is not accessible here</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">child</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">//innermost level of the scope chain</span></div><div class="line">      <span class="comment">//name is also accessible here</span></div><div class="line">      <span class="keyword">var</span> likes = <span class="string">'Coding'</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你可能注意到了词法作用域是向前的，意思是子执行环境可以访问name。但不是由父级向后的。意味着父级不能访问likes。这也告诉我们，在不同执行环境中同名变量优先级在执行栈由上到下增加。一个变量和另一个变量同名，内层函数（执行栈顶的环境）有更高的优先级。</p>
 <h3 style="color:red;">闭包</h3><br><h3 style="color:red;">共有作用域和私有作用域</h3>
       
     </div>
