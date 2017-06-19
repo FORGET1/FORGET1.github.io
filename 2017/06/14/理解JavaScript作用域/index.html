@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/14/理解JavaScript作用域/index.html">
 <meta property="og:site_name" content="楊陽さん">
 <meta property="og:description" content="什么是作用域作用域是你的代码在运行时，各个变量、函数和对象的可访问性。换句话说，作用域决定了你的代码里的变量和其他资源在各个区域中的可见性。 为什么需要作用域？最小访问原则那么限制变量的可见性，不允许你代码中所有的东西在任意地方都可用的好处是什么？其中一个优势，是作用域为你的代码提供了一个安全层级。计算机安全中，有个常规的原则是：用户只能访问他们当前需要的东西。">
-<meta property="og:updated_time" content="2017-06-19T04:41:30.731Z">
+<meta property="og:updated_time" content="2017-06-19T13:57:20.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解JavaScript作用域">
 <meta name="twitter:description" content="什么是作用域作用域是你的代码在运行时，各个变量、函数和对象的可访问性。换句话说，作用域决定了你的代码里的变量和其他资源在各个区域中的可见性。 为什么需要作用域？最小访问原则那么限制变量的可见性，不允许你代码中所有的东西在任意地方都可用的好处是什么？其中一个优势，是作用域为你的代码提供了一个安全层级。计算机安全中，有个常规的原则是：用户只能访问他们当前需要的东西。">
@@ -179,7 +179,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description"></h1>
       
   </div>
 
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">理解JavaScript作用域</h1>
+          <h2 class="post-title" itemprop="name headline">理解JavaScript作用域</h2>
         
 
         <div class="post-meta">
@@ -424,6 +424,34 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//logs:Window &#123;speechSynthesis:SpeechSynthesis,cache:CacheStorage,localStorage:Storage...&#125;</div><div class="line">console.log(this);</div><div class="line"></div><div class="line">function logFunction() &#123;</div><div class="line">  console.log(this);</div><div class="line">&#125;</div><div class="line">//logs:Window &#123;speechSynthesis:SpeechSynthesis,cache:CacheStorage,localStorage:Storage...&#125;</div><div class="line">//because logFunction() is not a property of an object</div><div class="line">logFunction();</div></pre></td></tr></table></figure>
 <p>如果作用域定义在一个对象方法中，上下文就是这个方法所在的那个对象。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class User &#123;</div><div class="line">  logName() &#123;</div><div class="line">    console.log(this);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">(new User).logName(); //logs User&#123;&#125;</div></pre></td></tr></table></figure>
+<p>(new User).logName()是创建对象关联到变量并调用logName方法的一种简便形式。通过这种方式你并不需要创建一个新的变量。</p>
+<p>你可能注意到一点，就是如果你使用new关键字调用函数时上下文的值会有差异。上下文会设置为被调用的函数的实例。考虑一下上面的这个例子，用new关键字调用的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function logFunction() &#123;</div><div class="line">  console.log(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">new logFunction();	//logs logFunction &#123;&#125;</div></pre></td></tr></table></figure>
+<p>当在严格模式(strict mode)中调用函数时，上下文默认是undefined。</p>
+<h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><p>为了解决掉我们从上面学习中会出现的各种困惑，“执行环境(context)”这个词中的“环境(context)”指的是作用域而并非上下文。这是一个怪异的命名规定，但由于JavaScript的文档如此，我们也只好这样约定。</p>
+<p>JavaScript是一种单线程语言，所以它同一时间只能执行单个任务。其他任务排列在执行环境中。当JavaScript解析器开始执行你的代码，环境（作用域）默认为全局。全局环境添加到你的执行环境中，事实上这是执行环境里的第一个环境。</p>
+<p>之后，每个函数调用都会添加它的环境到执行环境中，无论是函数内部还是其他地方调用函数，都会是相同的过程。</p>
+<p>每个函数都会创建它自己的执行环境。</p>
+<p>当浏览器执行完环境中的代码，这个环境会从执行环境中弹出，执行环境中当前环境的状态会转移到父级环境。浏览器总是先执行在执行栈顶的执行环境（事实上就是你代码最里面的作用域）。</p>
+<p>全局环境只能有一个，函数环境可以有任意多个。<br>执行环境有两个阶段：创建和执行。</p>
+<h2 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h2><p>第一阶段是创建阶段，是函数刚被调用但代码并未执行的时候。创建阶段只要发生了3件事。</p>
+<ul>
+<li>创建变量对象</li>
+<li>创建作用域链</li>
+<li>设置上下文(this)的值</li>
+</ul>
+<h2 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h2><p>变量对象(Variable Object)也称为活动对象(activation object)，包含所有变量、函数和其他执行环境中定义的声明。当函数调用时，解析器扫描所有资源，包括函数参数、变量和其他声明。当所有东西填进一个对象，这个对象就是变量对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&apos;variableObject&apos;: &#123;</div><div class="line">  //contains function arguments,inner variable and function declarations</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>在执行环境创建阶段，作用域链在变量对象之后创建。作用域链包含变量对象。作用域链用于解析变量。当解析一个变量时，JavaScript开始从最内层沿着父级寻找所需的变量或其他资源。作用域链包含自己执行环境以及所有父级环境中包含的变量对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&apos;scopeChain&apos;: &#123;</div><div class="line">  //contains its own variable object and other variable objects of the parent execution contexts</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="执行环境对象"><a href="#执行环境对象" class="headerlink" title="执行环境对象"></a>执行环境对象</h2><p>执行环境可以用下面抽象对象表示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">executionContextObject = &#123;</div><div class="line">  &apos;scopeChain&apos;: &#123;&#125;,	 //contains its own variableObject and other variableObject of the parent execution contexts</div><div class="line">  &apos;variableObject&apos;: &#123;&#125;,	 //contains function arguments,inner variable and function declarations</div><div class="line">  &apos;this&apos;: valueOfThis</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="代码执行阶段"><a href="#代码执行阶段" class="headerlink" title="代码执行阶段"></a>代码执行阶段</h2><p>执行环境的第二个阶段就是代码执行阶段，进行其他赋值操作并且代码最终被执行</p>
+<h3 style="color:red;">词法作用域</h3>
+
+<p>词法作用域的意思是在函数嵌套中，内层函数可以访问父级作用域的变量等资源。这意味着子函数词法绑定到了父级执行环境。词法作用域有事和静态作用域有关。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function grandfather() &#123;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 style="color:red;">闭包</h3><br><h3 style="color:red;">共有作用域和私有作用域</h3>
       
     </div>
 
@@ -546,8 +574,8 @@
                alt="楊陽さん" />
           <p class="site-author-name" itemprop="name">楊陽さん</p>
            
-              <p class="site-description motion-element" itemprop="description">美しく最後を飾りつける暇があるなら、最後まで美しく生きようじゃねーか。</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -637,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是作用域"><span class="nav-number">1.</span> <span class="nav-text">什么是作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要作用域？最小访问原则"><span class="nav-number">2.</span> <span class="nav-text">为什么需要作用域？最小访问原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的作用域"><span class="nav-number">3.</span> <span class="nav-text">JavaScript中的作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局作用域"><span class="nav-number">4.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部作用域"><span class="nav-number">5.</span> <span class="nav-text">局部作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块语句"><span class="nav-number">6.</span> <span class="nav-text">块语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文"><span class="nav-number">7.</span> <span class="nav-text">上下文</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是作用域"><span class="nav-number">1.</span> <span class="nav-text">什么是作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要作用域？最小访问原则"><span class="nav-number">2.</span> <span class="nav-text">为什么需要作用域？最小访问原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript中的作用域"><span class="nav-number">3.</span> <span class="nav-text">JavaScript中的作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局作用域"><span class="nav-number">4.</span> <span class="nav-text">全局作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部作用域"><span class="nav-number">5.</span> <span class="nav-text">局部作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块语句"><span class="nav-number">6.</span> <span class="nav-text">块语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文"><span class="nav-number">7.</span> <span class="nav-text">上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行环境"><span class="nav-number">8.</span> <span class="nav-text">执行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建阶段"><span class="nav-number">9.</span> <span class="nav-text">创建阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量对象"><span class="nav-number">10.</span> <span class="nav-text">变量对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">11.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行环境对象"><span class="nav-number">12.</span> <span class="nav-text">执行环境对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码执行阶段"><span class="nav-number">13.</span> <span class="nav-text">代码执行阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">13.1.</span> <span class="nav-text">词法作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">13.2.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">13.3.</span> <span class="nav-text">共有作用域和私有作用域</span></a></li></ol></li></ol></div>
             
 
           </div>
