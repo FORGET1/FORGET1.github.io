@@ -106,7 +106,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/14/理解JavaScript作用域/index.html">
 <meta property="og:site_name" content="楊陽さん">
 <meta property="og:description" content="JavaScript有个特性称为作用域。尽管对于很多开发新手来说，作用域的概念不容易理解，我会尽可能地从最简单的角度向你解释它们。理解作用域能让你编写更优雅、错误更少的代码，并能帮助你实现强大的设计模式。">
-<meta property="og:updated_time" content="2017-06-20T03:24:56.492Z">
+<meta property="og:updated_time" content="2017-06-20T03:41:53.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解JavaScript作用域">
 <meta name="twitter:description" content="JavaScript有个特性称为作用域。尽管对于很多开发新手来说，作用域的概念不容易理解，我会尽可能地从最简单的角度向你解释它们。理解作用域能让你编写更优雅、错误更少的代码，并能帮助你实现强大的设计模式。">
@@ -460,7 +460,14 @@
 <p>词法作用域的意思是在函数嵌套中，内层函数可以访问父级作用域的变量等资源。这意味着子函数词法绑定到了父级执行环境。词法作用域有事和静态作用域有关。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">grandfather</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> name = <span class="string">'Hammad'</span>;</div><div class="line">  <span class="comment">//likes is not accessible here</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">parent</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//name is accessible here</span></div><div class="line">    <span class="comment">//likes is not accessible here</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">child</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">//innermost level of the scope chain</span></div><div class="line">      <span class="comment">//name is also accessible here</span></div><div class="line">      <span class="keyword">var</span> likes = <span class="string">'Coding'</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>你可能注意到了词法作用域是向前的，意思是子执行环境可以访问name。但不是由父级向后的。意味着父级不能访问likes。这也告诉我们，在不同执行环境中同名变量优先级在执行栈由上到下增加。一个变量和另一个变量同名，内层函数（执行栈顶的环境）有更高的优先级。</p>
-<h3 style="color:red;">闭包</h3><br><h3 style="color:red;">共有作用域和私有作用域</h3>
+<h3 style="color:red;">闭包</h3>
+
+<p>闭包的概念和我们刚学习的词法作用域紧密相关。当内部函数试着访问外部函数的作用域链（词法作用域之外的变量）时产生闭包。闭包包括它们自己的作用域链、父级作用域链和全局作用域链。</p>
+<p>闭包不仅能访问外部函数的变量，也能访问外部函数的参数。</p>
+<p>即使函数已经return，闭包仍然能访问外部函数的变量。这意味着return的函数允许持续访问外部函数的所有资源。</p>
+<p>当你的外部函数return一个内部函数，调用外部函数时return的函数并不会被调用。你必须先用一个单独的变量保存外部函数的调用，完后将这个变量当做函数来调用。看下面这个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  name = <span class="string">'Hammad'</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'H'</span> + name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">greet();  <span class="comment">//nothing happends,no errors</span></div><div class="line"></div><div class="line"><span class="comment">//</span></div></pre></td></tr></table></figure>
+<h3 style="color:red;">共有作用域和私有作用域</h3>
       
     </div>
 
