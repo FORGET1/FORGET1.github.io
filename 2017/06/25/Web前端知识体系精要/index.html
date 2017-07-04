@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="楊陽さん">
 <meta property="og:description" content="Web前端技术由html、css和javascript三大部分构成，是一个庞大而复杂的知识体系，其复杂程度不低于任何一门后端语言。而我们在学习它的时候往往是先从某一个点切入，然后不断的接触和学习新的知识点，因此对于初学者很难理清整个体系的脉络结构。本文将对Web前端知识体系进行简单的梳理，对应每个知识点点到为止，不作详细介绍，如有遗漏或不正确的地方，希望共勉。">
 <meta property="og:image" content="http://i.imgur.com/wX7hd18.jpg">
-<meta property="og:updated_time" content="2017-07-03T09:37:57.224Z">
+<meta property="og:updated_time" content="2017-07-04T13:27:57.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web前端知识体系精要">
 <meta name="twitter:description" content="Web前端技术由html、css和javascript三大部分构成，是一个庞大而复杂的知识体系，其复杂程度不低于任何一门后端语言。而我们在学习它的时候往往是先从某一个点切入，然后不断的接触和学习新的知识点，因此对于初学者很难理清整个体系的脉络结构。本文将对Web前端知识体系进行简单的梳理，对应每个知识点点到为止，不作详细介绍，如有遗漏或不正确的地方，希望共勉。">
@@ -338,7 +338,7 @@
               
                 <span class="post-meta-item-text">投稿日</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-25T14:50:51+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-25T14:50:51+09:00">
                 2017-06-25
               </time>
             
@@ -460,7 +460,67 @@
 <li>如果此时js脚本中运行了<code>style.display=&quot;none&quot;</code>，布局被改变，引擎也需要重新渲染这部分代码；</li>
 <li>直到&lt;/html&gt;为止，页面渲染完毕。</li>
 </ul>
-<h2 id="重绘和回流"><a href="#重绘和回流" class="headerlink" title="重绘和回流"></a>重绘和回流</h2>
+<h2 id="重绘和回流"><a href="#重绘和回流" class="headerlink" title="重绘和回流"></a>重绘和回流</h2><p>当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流。比如上面的img文件加载完成后就会引起回流，每个页面至少需要一次回流，就是在页面第一次加载的时候。</p>
+<p>当渲染树中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则称为重绘。</p>
+<p>从上面可以看出，回流必将引起重绘，而重绘不一定会引起回流。</p>
+<p>会引起重绘和回流的操作</p>
+<ul>
+<li>添加、删除元素(回流+重绘)</li>
+<li>隐藏元素，display:none(回流+重绘)，visibility:hidden(只重绘，不回流)</li>
+<li>移动元素，比如改变top,left,transform的值，或者移动元素到另外一个父元素中。(重绘+回流)</li>
+<li>对style的操作(对不同的属性操作，影响不一样)</li>
+<li>还有一种使用户的操作，比如改变浏览器大小，改变浏览器的字体大小等(回流+重绘)</li>
+</ul>
+<h2 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h2><p>本地存储最原始的方式就是cookie，cookie是存放在本地浏览器的一段文本，数据以键值对的形式保存，可以设置过期时间。但是cookie不适合大量数据的存储，因为每请求一次页面，cookie都会发送给服务器，这使得cookie速度很慢而且效率也不高。因此cookie的大小被限制为4k左右(不同浏览器可能不同，分HOST)，如下所示：</p>
+<ul>
+<li>Firefox和Safari允许cookie多达4097个字节，包括名(name)、值(value)和等号。</li>
+<li>Opera允许cookie多达4096个字节，包括：名(name)、值(value)和等号。</li>
+<li>Internet Explorer允许cookie多达4095个字节，包括：名(name)、值(value)和等号。</li>
+</ul>
+<p><strong>在所有浏览器中，任何cookie大小超过限制都会被忽略，且永远不会被设置。</strong></p>
+<p>html5提供了两种在客户端存储数据的新方法：localStorage和sessionStorage，它们都是以key/value的形式来存储数据，前者是永久存储，后者的存储期限仅限于浏览器会话(session)，即当浏览器窗口关闭后，sessionStorage中的数据被清除。</p>
+<p>localStorage的存储空间大约5M左右(不同浏览器可能不同，分HOST)，这个相当于一个5M大小的前端页面的数据库，相比于cookie可以节约带宽，但localStorage在浏览器隐私模式下是不可读取的，当存储数据超过了localStorage的存储空间后会抛出异常。</p>
+<p>此外，H5还提供了逆天的websql和indexedDB，允许前端以关系型数据库的方式来存储本地数据，相对来说，这个功能目前应用的场景较少，此处不做介绍。</p>
+<h2 id="浏览器缓存机制"><a href="#浏览器缓存机制" class="headerlink" title="浏览器缓存机制"></a>浏览器缓存机制</h2><p>浏览器缓存机制是指通过HTTP协议头里的Cache-Control(或Expires)和Last-Modified(或Etag)等字段来控制文件缓存的机制。</p>
+<p>Cache-Control用于控制文件在本地缓存有效时长。最常见的，比如服务器回包：Cache-Control:max-age=600表示文件在本地应该缓存，且有效时长是600秒(从发出请求算起)。在接下来600秒内，如果有请求这个资源，浏览器不会发出HTTP请求，而是直接使用本地缓存的文件。</p>
+<p>Last-Modified是标识文件在服务器上的最新更新时间。下次请求时，如果文件缓存过期，浏览器通过If-Modified-Since字段带上这个时间，发送给服务器，由服务器比较时间戳来判断文件是否有修改。如果没有修改，服务器返回304告诉浏览器继续侍弄缓存；如果有修改，则返回200，同时返回最新的文件。</p>
+<p>Cache-Control通常与Last-Modified一起使用。一个用于控制缓存有效时间，一个在缓存失效后，向服务器查询是否有更新。</p>
+<p>Cache-Control还有一个同功能的字段：Expires。Expires的值是一个绝对的时间点，如：Expires：Thu, 10 Nov 2015 08:48:11 GMT，表示在这个时间点之前，缓存都是有效的。</p>
+<p>Expires是HTTP1.0标准中的字段，Cache-Control是HTTP1.1标准中新加的字段，功能一样，都是控制缓存的有效时间。当这两个字段同时出现时，Cache-Control是最高优先级的。</p>
+<p>Etag也是和Last-Modified一样，对文件进行标识的字段。不同的是，Etag的取值是一个对文件进行标识的特征字符。在向服务器查询文件是否有更新时，浏览器通过If-None-Match字段把特征字符串发送给服务器，由服务器和文件最新特征字符串进行匹配，来判断文件是否有更新。没有更新返回304，有更新返回200.Etag和Last-Modified可根据需求使用一个或两个同时使用。两个同时使用时，只要满足其中一个条件，就认为文件没有更新。</p>
+<p>另外有两种特殊的情况：</p>
+<ul>
+<li>手动刷新页面(F5)，浏览器会认为缓存已经过期(可能缓存还没有过期)，在请求中加上字段：Cache-Control:max-age=0，发包向服务器查询是否有文件需要更新。</li>
+<li>强制刷新页面(Ctrl+F5)，浏览器会直接忽略本地的缓存(有缓存也会认为本地没有缓存)，在请求中加上字段：Cache-Control:no-cache(或Pragma:no-cache)，发包向服务器重新拉取文件。</li>
+</ul>
+<h2 id="History操作"><a href="#History操作" class="headerlink" title="History操作"></a>History操作</h2><p>用户访问网页的历史记录通常会被保存在一个类似于栈的对象中，及history对象，点击返回就出栈，跳下一页就入栈。它提供了以下方法来操作页面的前进和后退：</p>
+<ul>
+<li><code>window.history.back()</code>返回到上一个页面</li>
+<li><code>window.history.forword()</code>进入到下一个页面</li>
+<li><code>window.history.go([delta])</code>跳转到指定页面</li>
+</ul>
+<p>HTML5对History Api进行了增强，新增了两个Api和一个事件，分别是pushState、replaceState和onpopstate</p>
+<p>pushState是往history对象里添加一个新的历史记录，即压栈。</p>
+<p>replaceState是替换history对象中的当前历史记录。</p>
+<p><strong>当点击浏览器后退按钮或js调用history.back都会触发onpopstate事件。</strong></p>
+<p>与其类似的还有一个事件：onhashchange，onhashchange是老API，浏览器支持度高，本来是用来监听hash变化的，但可以被利用来做客户端前进和后退事件的监听，而onpopstate是专门用来监听浏览器前进后退的，不仅可以支持hash，非hash的同源url也支持。</p>
+<h2 id="HTML5离线缓存"><a href="#HTML5离线缓存" class="headerlink" title="HTML5离线缓存"></a>HTML5离线缓存</h2><p>HTML5离线缓存又叫Application Cache，是从浏览器的缓存中分出来的一块缓存区，如果要在这个缓存中保存数据，可以使用一个描述文件(manifest file)，列出要下载和缓存的资源。</p>
+<p>manifest文件是简单的文本文件，它告知浏览器被缓存的内容(以及不缓存的内容)。manifest文件可分为三个部分：</p>
+<ul>
+<li>CACHE MANIFEST -在此标题下列出的文件将在首次下载后进行缓存</li>
+<li>NETWORK -在此标题下列出的文件需要与服务器连接，且不会被缓存</li>
+<li>FALLOBACK -在此标题下列出的文件规定当页面无法访问时回退页面(比如404页面)</li>
+</ul>
+<p>离线缓存为应用带来三个优势：</p>
+<ul>
+<li>离线浏览 -用户可以在应用离线时使用它们</li>
+<li>速度 -已缓存资源加载得更快</li>
+<li>减少服务器负载 -浏览器将只从服务器下载更新过或更改过的资源</li>
+</ul>
+<h2 id="Canvas和SVG"><a href="#Canvas和SVG" class="headerlink" title="Canvas和SVG"></a>Canvas和SVG</h2><p>Canvas通过Javascript来绘制2D图形。Canvas是逐像素进行渲染的。在Canvas中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。</p>
+<p>SVG是一种使用XML描述的2D图形的语言。SVG基于XML，这意味着SVG DOM中每个元素都是可用的。你可以为某个元素附加JavaScript事件处理器。在SVG中，每个被绘制的图形均被视为对象。如果SVG对象的属性发生变化，那么浏览器能够自动重现图形。</p>
+<p>Canvas和SVG相比，canvas更依赖于分辨率，不支持事件处理器，文本渲染能力弱，比较适合密集型游戏，其中的许多对象会被频繁绘制，而svg则比较适用于类似谷歌地图带有大型渲染区域的应用程序。</p>
+
       
     </div>
 
@@ -690,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVASCRIPT篇"><span class="nav-number">1.</span> <span class="nav-text">JAVASCRIPT篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法"><span class="nav-number">1.1.</span> <span class="nav-text">基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数原型链"><span class="nav-number">1.2.</span> <span class="nav-text">函数原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作用域"><span class="nav-number">1.3.</span> <span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数指针this"><span class="nav-number">1.4.</span> <span class="nav-text">函数指针this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数new"><span class="nav-number">1.5.</span> <span class="nav-text">构造函数new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.6.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单线程和异步队列"><span class="nav-number">1.7.</span> <span class="nav-text">单线程和异步队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步通讯Ajax技术"><span class="nav-number">1.8.</span> <span class="nav-text">异步通讯Ajax技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM对象document"><span class="nav-number">1.9.</span> <span class="nav-text">DOM对象document</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件系统Event"><span class="nav-number">1.10.</span> <span class="nav-text">事件系统Event</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局对象window"><span class="nav-number">1.11.</span> <span class="nav-text">全局对象window</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS篇"><span class="nav-number">2.</span> <span class="nav-text">CSS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">2.1.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位position"><span class="nav-number">2.2.</span> <span class="nav-text">定位position</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动float"><span class="nav-number">2.3.</span> <span class="nav-text">浮动float</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒子模型Box"><span class="nav-number">2.4.</span> <span class="nav-text">盒子模型Box</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弹性布局Flex"><span class="nav-number">2.5.</span> <span class="nav-text">弹性布局Flex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡Transition、旋转Transform"><span class="nav-number">2.6.</span> <span class="nav-text">过渡Transition、旋转Transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画Animation"><span class="nav-number">2.7.</span> <span class="nav-text">动画Animation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#雪碧图sprite"><span class="nav-number">2.8.</span> <span class="nav-text">雪碧图sprite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体图标iconfont"><span class="nav-number">2.9.</span> <span class="nav-text">字体图标iconfont</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML篇"><span class="nav-number">3.</span> <span class="nav-text">HTML篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Web语义化和SEO"><span class="nav-number">3.1.</span> <span class="nav-text">Web语义化和SEO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面渲染机制"><span class="nav-number">3.2.</span> <span class="nav-text">页面渲染机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘和回流"><span class="nav-number">3.3.</span> <span class="nav-text">重绘和回流</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVASCRIPT篇"><span class="nav-number">1.</span> <span class="nav-text">JAVASCRIPT篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法"><span class="nav-number">1.1.</span> <span class="nav-text">基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数原型链"><span class="nav-number">1.2.</span> <span class="nav-text">函数原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作用域"><span class="nav-number">1.3.</span> <span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数指针this"><span class="nav-number">1.4.</span> <span class="nav-text">函数指针this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数new"><span class="nav-number">1.5.</span> <span class="nav-text">构造函数new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.6.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单线程和异步队列"><span class="nav-number">1.7.</span> <span class="nav-text">单线程和异步队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步通讯Ajax技术"><span class="nav-number">1.8.</span> <span class="nav-text">异步通讯Ajax技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM对象document"><span class="nav-number">1.9.</span> <span class="nav-text">DOM对象document</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件系统Event"><span class="nav-number">1.10.</span> <span class="nav-text">事件系统Event</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局对象window"><span class="nav-number">1.11.</span> <span class="nav-text">全局对象window</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS篇"><span class="nav-number">2.</span> <span class="nav-text">CSS篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">2.1.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位position"><span class="nav-number">2.2.</span> <span class="nav-text">定位position</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动float"><span class="nav-number">2.3.</span> <span class="nav-text">浮动float</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒子模型Box"><span class="nav-number">2.4.</span> <span class="nav-text">盒子模型Box</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弹性布局Flex"><span class="nav-number">2.5.</span> <span class="nav-text">弹性布局Flex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡Transition、旋转Transform"><span class="nav-number">2.6.</span> <span class="nav-text">过渡Transition、旋转Transform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画Animation"><span class="nav-number">2.7.</span> <span class="nav-text">动画Animation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#雪碧图sprite"><span class="nav-number">2.8.</span> <span class="nav-text">雪碧图sprite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体图标iconfont"><span class="nav-number">2.9.</span> <span class="nav-text">字体图标iconfont</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML篇"><span class="nav-number">3.</span> <span class="nav-text">HTML篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Web语义化和SEO"><span class="nav-number">3.1.</span> <span class="nav-text">Web语义化和SEO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面渲染机制"><span class="nav-number">3.2.</span> <span class="nav-text">页面渲染机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘和回流"><span class="nav-number">3.3.</span> <span class="nav-text">重绘和回流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地存储"><span class="nav-number">3.4.</span> <span class="nav-text">本地存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器缓存机制"><span class="nav-number">3.5.</span> <span class="nav-text">浏览器缓存机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#History操作"><span class="nav-number">3.6.</span> <span class="nav-text">History操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5离线缓存"><span class="nav-number">3.7.</span> <span class="nav-text">HTML5离线缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas和SVG"><span class="nav-number">3.8.</span> <span class="nav-text">Canvas和SVG</span></a></li></ol></li></ol></div>
             
 
           </div>
