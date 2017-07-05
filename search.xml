@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[.md]]></title>
-    <url>%2F2017%2F07%2F05%2Fmd%2F</url>
+    <title><![CDATA[JavaScript数组的那些事]]></title>
+    <url>%2F2017%2F07%2F05%2FJavaScript%E6%95%B0%E7%BB%84%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%2F</url>
     <content type="text"><![CDATA[速度]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Web前端知识体系精要]]></title>
