@@ -396,10 +396,17 @@
 
       
         
-          
-            <p>速度</p>
-
-          
+          <h1 id="Array构造器"><a href="#Array构造器" class="headerlink" title="Array构造器"></a>Array构造器</h1><p>如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">12</span>);</div><div class="line"><span class="comment">// (12)[undefined x 12]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">''</span>);</div><div class="line"><span class="comment">// [""]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(&#123;&#125;);</div><div class="line"><span class="comment">// [Object]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>([]);</div><div class="line"><span class="comment">// [Array[0]]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="literal">null</span>);</div><div class="line"><span class="comment">// [null]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="literal">NaN</span>);</div><div class="line"><span class="comment">// Uncaught RangeError: Invalid array length(无效的数组长度，因为NaN是Number乐行，但又不是一个具体的数字因此报错)</span></div></pre></td></tr></table></figure>
+<p>注意当只传递一个参数时，它只是指定该数组的长度，并不会去填充内容</p>
+<p><img src="http://i.imgur.com/5RqOPwi.png" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/05/JavaScript数组的那些事/#more" rel="contents">
+              続きを読む &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

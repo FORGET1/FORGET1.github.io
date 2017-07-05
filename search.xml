@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[JavaScript数组的那些事]]></title>
     <url>%2F2017%2F07%2F05%2FJavaScript%E6%95%B0%E7%BB%84%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%2F</url>
-    <content type="text"><![CDATA[速度]]></content>
+    <content type="text"><![CDATA[Array构造器如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。 123456789101112new Array(12);// (12)[undefined x 12]new Array('');// [""]new Array(&#123;&#125;);// [Object]new Array([]);// [Array[0]]new Array(null);// [null]new Array(NaN);// Uncaught RangeError: Invalid array length(无效的数组长度，因为NaN是Number乐行，但又不是一个具体的数字因此报错) 注意当只传递一个参数时，它只是指定该数组的长度，并不会去填充内容 由于传递一个参数时不会填充数组内容，因此forEach不会循环这些空内容，或者说forEach不是根据数组的长度来循环的，以下代码就不会被输出任何内容 123new Array(6).forEach(function(item, index) &#123; console.log(index);&#125;) 像我们]]></content>
       <categories>
         <category>前端开发</category>
       </categories>

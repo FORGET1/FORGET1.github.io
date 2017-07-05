@@ -99,17 +99,19 @@
 
 
 
-<meta name="description" content="速度">
+<meta name="description" content="Array构造器如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。 123456789101112new Array(12);// (12)[undefined x 12]new Array(&apos;&apos;);// [&quot;&quot;]new Array(&amp;#123;&amp;#125;);// [Object]new Array([]);// [Array[0]]new">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript数组的那些事">
 <meta property="og:url" content="http://yoursite.com/2017/07/05/JavaScript数组的那些事/index.html">
 <meta property="og:site_name" content="楊陽さん">
-<meta property="og:description" content="速度">
-<meta property="og:updated_time" content="2017-07-05T14:14:05.809Z">
+<meta property="og:description" content="Array构造器如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。 123456789101112new Array(12);// (12)[undefined x 12]new Array(&apos;&apos;);// [&quot;&quot;]new Array(&amp;#123;&amp;#125;);// [Object]new Array([]);// [Array[0]]new">
+<meta property="og:image" content="http://i.imgur.com/5RqOPwi.png">
+<meta property="og:updated_time" content="2017-07-05T14:33:32.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript数组的那些事">
-<meta name="twitter:description" content="速度">
+<meta name="twitter:description" content="Array构造器如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。 123456789101112new Array(12);// (12)[undefined x 12]new Array(&apos;&apos;);// [&quot;&quot;]new Array(&amp;#123;&amp;#125;);// [Object]new Array([]);// [Array[0]]new">
+<meta name="twitter:image" content="http://i.imgur.com/5RqOPwi.png">
 
 
 
@@ -403,7 +405,14 @@
       
 
       
-        <p>速度</p>
+        <h1 id="Array构造器"><a href="#Array构造器" class="headerlink" title="Array构造器"></a>Array构造器</h1><p>如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">12</span>);</div><div class="line"><span class="comment">// (12)[undefined x 12]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">''</span>);</div><div class="line"><span class="comment">// [""]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(&#123;&#125;);</div><div class="line"><span class="comment">// [Object]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>([]);</div><div class="line"><span class="comment">// [Array[0]]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="literal">null</span>);</div><div class="line"><span class="comment">// [null]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="literal">NaN</span>);</div><div class="line"><span class="comment">// Uncaught RangeError: Invalid array length(无效的数组长度，因为NaN是Number乐行，但又不是一个具体的数字因此报错)</span></div></pre></td></tr></table></figure>
+<p>注意当只传递一个参数时，它只是指定该数组的长度，并不会去填充内容</p>
+<p><img src="http://i.imgur.com/5RqOPwi.png" alt=""></p>
+<a id="more"></a>
+<p>由于传递一个参数时不会填充数组内容，因此forEach不会循环这些空内容，或者说forEach不是根据数组的长度来循环的，以下代码就不会被输出任何内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">6</span>).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(index);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>像我们</p>
 
       
     </div>
@@ -526,8 +535,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            見出し
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            概要
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/1.jpg"
@@ -615,6 +633,22 @@
         
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Array构造器"><span class="nav-number">1.</span> <span class="nav-text">Array构造器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
