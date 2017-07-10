@@ -108,7 +108,7 @@
 <meta property="og:description" content="Array构造器如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。 123456789101112new Array(12);// (12)[undefined x 12]new Array(&apos;&apos;);// [&quot;&quot;]new Array(&amp;#123;&amp;#125;);// [Object]new Array([]);// [Array[0]]new">
 <meta property="og:image" content="http://i.imgur.com/5RqOPwi.png">
 <meta property="og:image" content="http://i.imgur.com/jsQYxN7.png">
-<meta property="og:updated_time" content="2017-07-10T07:05:28.761Z">
+<meta property="og:updated_time" content="2017-07-10T07:17:57.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript数组的那些事">
 <meta name="twitter:description" content="Array构造器如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。 123456789101112new Array(12);// (12)[undefined x 12]new Array(&apos;&apos;);// [&quot;&quot;]new Array(&amp;#123;&amp;#125;);// [Object]new Array([]);// [Array[0]]new">
@@ -440,6 +440,11 @@
 <p>数组也是一种特殊的对象，因此我们也可以通过键值对的形式去访问</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line">arr.say = <span class="string">'Hello'</span>;</div><div class="line">arr.say;</div><div class="line"><span class="comment">//"Hello"</span></div></pre></td></tr></table></figure>
 <h1 id="数组与其他值的运算"><a href="#数组与其他值的运算" class="headerlink" title="数组与其他值的运算"></a>数组与其他值的运算</h1><p>数组和任何值相加都会将数组转换为字符串在进行拼接</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] + <span class="number">6</span></div><div class="line"><span class="comment">//"1,2,36"</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] + &#123;&#125;</div><div class="line"><span class="comment">//"1,2,3[object Object]"</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] + [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line"><span class="comment">//"1,2,31,2,3"</span></div></pre></td></tr></table></figure>
+<p>如果数组只有一个值，那么当这个数组和其他值相减相乘等时会被转换为数字，如果为空会被转换为0</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">5</span>] - <span class="number">2</span></div><div class="line"><span class="comment">//3</span></div></pre></td></tr></table></figure>
+<p>如果是多个值，肯定时NaN</p>
+<h1 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h1><p>使用for</p>
 
       
     </div>
@@ -670,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Array构造器"><span class="nav-number">1.</span> <span class="nav-text">Array构造器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组的访问"><span class="nav-number">2.</span> <span class="nav-text">数组的访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组与其他值的运算"><span class="nav-number">3.</span> <span class="nav-text">数组与其他值的运算</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Array构造器"><span class="nav-number">1.</span> <span class="nav-text">Array构造器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组的访问"><span class="nav-number">2.</span> <span class="nav-text">数组的访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组与其他值的运算"><span class="nav-number">3.</span> <span class="nav-text">数组与其他值的运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遍历数组"><span class="nav-number">4.</span> <span class="nav-text">遍历数组</span></a></li></ol></div>
             
 
           </div>
