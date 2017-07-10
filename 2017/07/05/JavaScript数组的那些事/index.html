@@ -107,7 +107,8 @@
 <meta property="og:site_name" content="楊陽さん">
 <meta property="og:description" content="Array构造器如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。 123456789101112new Array(12);// (12)[undefined x 12]new Array(&apos;&apos;);// [&quot;&quot;]new Array(&amp;#123;&amp;#125;);// [Object]new Array([]);// [Array[0]]new">
 <meta property="og:image" content="http://i.imgur.com/5RqOPwi.png">
-<meta property="og:updated_time" content="2017-07-05T14:33:32.004Z">
+<meta property="og:image" content="http://i.imgur.com/jsQYxN7.png">
+<meta property="og:updated_time" content="2017-07-10T07:05:28.761Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript数组的那些事">
 <meta name="twitter:description" content="Array构造器如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。 123456789101112new Array(12);// (12)[undefined x 12]new Array(&apos;&apos;);// [&quot;&quot;]new Array(&amp;#123;&amp;#125;);// [Object]new Array([]);// [Array[0]]new">
@@ -338,7 +339,7 @@
               
                 <span class="post-meta-item-text">投稿日</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-05T23:10:18+09:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-05T23:10:18+08:00">
                 2017-07-05
               </time>
             
@@ -412,7 +413,33 @@
 <a id="more"></a>
 <p>由于传递一个参数时不会填充数组内容，因此forEach不会循环这些空内容，或者说forEach不是根据数组的长度来循环的，以下代码就不会被输出任何内容</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">6</span>).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(index);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>像我们</p>
+<p>像我们自己模拟的forEach基本上都是有问题的，因为我看大部分人都是通过for循环数组的长度来模拟的forEach</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">forEach</span>(<span class="params">arr, fun</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr.length;i++)&#123;</div><div class="line">    fun(arr[i])</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这就说明在某些情况下数组的长度是不可靠的，并且我们没有办法去真实的模拟forEach，通过判断是不是undefined也是不准确的。</p>
+<p>由于传递一个参数时只会增加数组长度而不会填充内容，因此我们可以利用这个特点来实现自定义索引起始位置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>).concat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`item:<span class="subst">$&#123;item&#125;</span> index<span class="subst">$&#123;index&#125;</span>`</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//item:1 index10</span></div><div class="line"><span class="comment">//item:2 index11</span></div><div class="line"><span class="comment">//item:3 index12</span></div><div class="line"><span class="comment">//item:4 index13</span></div><div class="line"><span class="comment">//item:5 index14</span></div></pre></td></tr></table></figure>
+<p>当然我们也可以这样玩</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>).concat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]).concat(<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>)).concat([<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>])</div></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/jsQYxN7.png" alt=""></p>
+<p>这种方式有个好处就是，空内容不会被循环到。</p>
+<p>它还可以用来实现相同的连续字符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>+<span class="number">1</span>).join(<span class="string">'哈'</span>) <span class="comment">//由于数组索引是从0开始的所以需要加+1才是5</span></div><div class="line"><span class="comment">//"哈哈哈哈哈"</span></div></pre></td></tr></table></figure>
+<p>我们用它来输出一个好玩的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>).concat([<span class="string">'I'</span>,<span class="string">'o'</span>,<span class="string">'v'</span>,<span class="string">'e'</span>]).concat([<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>)]).join(<span class="string">'--'</span>)</div><div class="line"><span class="comment">//"------I--o--v--e--"</span></div></pre></td></tr></table></figure>
+<p>如果你希望设置默认填充内容可以使用数组的fill方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>),fill(<span class="number">999</span>)</div><div class="line">[<span class="number">999</span>,<span class="number">999</span>,<span class="number">999</span>,<span class="number">999</span>,<span class="number">999</span>]</div></pre></td></tr></table></figure>
+<p>我们也可以使用下面这种方式来实现默认填充内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>).join(<span class="string">'5'</span>).split(<span class="string">','</span>);</div><div class="line">arr.splice(<span class="number">-1</span>,<span class="number">1</span>);</div><div class="line"><span class="comment">//["5","5","5","5","5"]</span></div></pre></td></tr></table></figure>
+<p>以上这种方式的缺点就是都会变成字符串。</p>
+<p>通过Array()方法来创建数组和用new方法来创建效果一样。</p>
+<h1 id="数组的访问"><a href="#数组的访问" class="headerlink" title="数组的访问"></a>数组的访问</h1><p>数组通过下标访问</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>][<span class="number">1</span>]</div><div class="line"><span class="comment">//3</span></div></pre></td></tr></table></figure>
+<p>当我们通过以下方式进行访问时，会被解析成连续运算返回最后一个值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>][<span class="number">1</span>,<span class="number">2</span>]</div><div class="line"><span class="comment">//4</span></div></pre></td></tr></table></figure>
+<p>由于以上[1,2]是去访问数组的下标因而被解析成了1,2结果返回的是2，所以以上输出4</p>
+<p>数组也是一种特殊的对象，因此我们也可以通过键值对的形式去访问</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line">arr.say = <span class="string">'Hello'</span>;</div><div class="line">arr.say;</div><div class="line"><span class="comment">//"Hello"</span></div></pre></td></tr></table></figure>
+<h1 id="数组与其他值的运算"><a href="#数组与其他值的运算" class="headerlink" title="数组与其他值的运算"></a>数组与其他值的运算</h1><p>数组和任何值相加都会将数组转换为字符串在进行拼接</p>
 
       
     </div>
@@ -643,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Array构造器"><span class="nav-number">1.</span> <span class="nav-text">Array构造器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Array构造器"><span class="nav-number">1.</span> <span class="nav-text">Array构造器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组的访问"><span class="nav-number">2.</span> <span class="nav-text">数组的访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组与其他值的运算"><span class="nav-number">3.</span> <span class="nav-text">数组与其他值的运算</span></a></li></ol></div>
             
 
           </div>
