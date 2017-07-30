@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>楊陽さん</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-07-19T11:11:43.058Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>楊陽さん</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>让Sublime Text成为静态WEB服务器</title>
+    <link href="http://yoursite.com/2017/07/19/%E8%AE%A9SublimeText%E6%88%90%E4%B8%BA%E9%9D%99%E6%80%81WEB%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://yoursite.com/2017/07/19/让SublimeText成为静态WEB服务器/</id>
+    <published>2017-07-19T10:16:20.000Z</published>
+    <updated>2017-07-19T11:11:43.058Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你使用Sublime Text作为你的编辑器，那么在进行HTML和Java开发的时候有一个很有用的功能，帮你完成前端的联调测试，那就是Sublime Text的服务器插件：SublimeServer。使用了该插件后，你不在需要单独的启动Tomcat或者Apache这样的重型服务器，就可以完成HTML和Java在服务器的联调。SublimeServer会启动一个轻量级的，静态的WEB服务器，让你在文本编辑器中直接启动服务器，并进行测试联调。安装方法也很简单：</p>
+<a id="more"></a>
+<ol>
+<li>Ctrl + Shift +P，启动Sublime Text的命令行</li>
+<li>输入Install Package打开插件安装命令</li>
+</ol>
+<p><img src="http://i.imgur.com/4QOs44f.png" alt=""></p>
+<ol>
+<li>输入SublimeServer找到Sublime Text的服务器插件，回车直接安装即可</li>
+</ol>
+<p><img src="http://i.imgur.com/GRmswQk.png" alt=""></p>
+<ol>
+<li>安装完成后，点击工具选项，就可以看到SublimeServer工具了，然后点击Settings，查看SublimeServer的基本配置，这里可以修改服务器端口，文件扩展名等</li>
+</ol>
+<p><img src="http://i.imgur.com/w70sfUZ.png" alt=""></p>
+<ol>
+<li>查看好设定后，点击Start SublimeServer，就可以启动服务器了</li>
+</ol>
+<p><img src="http://i.imgur.com/1Nusen8.png" alt=""></p>
+<ol>
+<li>注意：SublimeServer要求你的代码文件夹，要添加到Sublime Text的项目里面，这样才能列出这些文件夹。</li>
+</ol>
+<p><img src="http://i.imgur.com/6XYhIJW.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果你使用Sublime Text作为你的编辑器，那么在进行HTML和Java开发的时候有一个很有用的功能，帮你完成前端的联调测试，那就是Sublime Text的服务器插件：SublimeServer。使用了该插件后，你不在需要单独的启动Tomcat或者Apache这样的重型服务器，就可以完成HTML和Java在服务器的联调。SublimeServer会启动一个轻量级的，静态的WEB服务器，让你在文本编辑器中直接启动服务器，并进行测试联调。安装方法也很简单：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="插件推荐" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
+    
+    
+      <category term="开发工具" scheme="http://yoursite.com/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git入門編~コマンドをまとめてみた</title>
+    <link href="http://yoursite.com/2017/07/18/git%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2017/07/18/git入门/</id>
+    <published>2017-07-18T12:53:39.000Z</published>
+    <updated>2017-07-18T13:05:32.385Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>本文转载自</strong><a href="http://qiita.com/macotok/items/16dbc031e1f6212ea4bf" target="_blank" rel="external">git入門編~コマンドをまとめてみた</a></p>
+<p>git入門編~コマンドをまとめてみた<br>使用頻度の高いコマンドの意味と使い方をまとめました</p>
+<h2 id="gitとは"><a href="#gitとは" class="headerlink" title="gitとは"></a>gitとは</h2><ul>
+<li>バージョン管理システム</li>
+</ul>
+<h2 id="大まかな流れ"><a href="#大まかな流れ" class="headerlink" title="大まかな流れ"></a>大まかな流れ</h2><ol>
+<li>作業ディレクトリで作業</li>
+<li>ステージングエリア(インデックス)にadd</li>
+<li>ローカルリポジトリにcommit</li>
+<li>リモートリポジトリにpush</li>
+</ol>
+<h2 id="git初期設定"><a href="#git初期設定" class="headerlink" title="git初期設定"></a>git初期設定</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;xxxx&quot;</div><div class="line">$ git config --global user.email &quot;xxxx&quot;</div><div class="line">$ git config --global color.ui true</div><div class="line">$ git config -l 　　　　　　　　　// 設定が見れる</div><div class="line">$ git config --help 　// help画面</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="gitを使用"><a href="#gitを使用" class="headerlink" title="gitを使用"></a>gitを使用</h2><p>作業するフォルダに「git init」でgitが使えるようになる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir myweb</div><div class="line">$ cd myweb</div><div class="line">$ git init</div></pre></td></tr></table></figure>
+<h2 id="作業フロー"><a href="#作業フロー" class="headerlink" title="作業フロー"></a>作業フロー</h2><p>・作業ディレクトリで作業する<br>index.htmlを作って、適当にコードを書く</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ touch index.html</div></pre></td></tr></table></figure>
+<p>・ステージングエリア(インデックス)にadd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add index.html</div></pre></td></tr></table></figure>
+<p>・ローカルリポジトリにcommit<br>※メッセージを必ず書く</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &apos;first commit&apos;</div></pre></td></tr></table></figure>
+<p>・リモートリポジトリにpush</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
+<h2 id="コミット履歴-log"><a href="#コミット履歴-log" class="headerlink" title="コミット履歴 log"></a>コミット履歴 log</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log</div></pre></td></tr></table></figure>
+<p>以下のcommit履歴が見れる</p>
+<ul>
+<li>commitのid(ユニークキー)</li>
+<li>commitした人</li>
+<li>commitした日</li>
+<li>commitメッセージ</li>
+</ul>
+<h2 id="コミット履歴のオプション"><a href="#コミット履歴のオプション" class="headerlink" title="コミット履歴のオプション"></a>コミット履歴のオプション</h2><p>・commit idの上位7ケタとメッセージを表示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log --oneline</div></pre></td></tr></table></figure>
+<p>・変更箇所を表示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log -p</div></pre></td></tr></table></figure>
+<p>・変更ファイルを表示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log --stat</div></pre></td></tr></table></figure>
+<h2 id="現在の状態を把握-status"><a href="#現在の状態を把握-status" class="headerlink" title="現在の状態を把握 status"></a>現在の状態を把握 status</h2><p>ファイルを追加したのか修正したのか削除したのかなどのファイルの状態がわかる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+<p>その次の手順</p>
+<ul>
+<li>ステージングにaddする</li>
+<li>保存を取り消す</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add index.html             // ステージングにadd</div><div class="line">$ git checkout -- index.html     // ファイル保存を取り消す(元に戻る)</div></pre></td></tr></table></figure>
+<h2 id="差分を確認-diff"><a href="#差分を確認-diff" class="headerlink" title="差分を確認 diff"></a>差分を確認 diff</h2><p>作業ディレクトリのファイルとステージングの差分を確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff</div></pre></td></tr></table></figure>
+<p>ステージングとコミットの差分を確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff --cached</div></pre></td></tr></table></figure>
+<h2 id="ステージングに全ファイルをあげる-add"><a href="#ステージングに全ファイルをあげる-add" class="headerlink" title="ステージングに全ファイルをあげる　add"></a>ステージングに全ファイルをあげる　add</h2><p>作業ディレクトリからステージングに全てのファイルを上げる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add .</div></pre></td></tr></table></figure>
+<h2 id="git上で削除、移動"><a href="#git上で削除、移動" class="headerlink" title="git上で削除、移動"></a>git上で削除、移動</h2><p>git管理下でコマンド削除、移動を行う</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git rm index.html</div><div class="line">$ git mv index.html</div></pre></td></tr></table></figure>
+<h2 id="git管理に含めない場合"><a href="#git管理に含めない場合" class="headerlink" title="git管理に含めない場合"></a>git管理に含めない場合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.gitignore</div></pre></td></tr></table></figure>
+<p>「.gitignore」ファイルに「*.log」と書くと全てのlogファイルはgit管理から外れる<br>管理から外れると「git status」「git add」と打ってもlogファイルは表示されない<br>※「.gitignore」ファイルはファイルがある同階層、またはその下位階層が対象となる</p>
+<h2 id="コミットとメッセージを同時に行う"><a href="#コミットとメッセージを同時に行う" class="headerlink" title="コミットとメッセージを同時に行う"></a>コミットとメッセージを同時に行う</h2><p>commandでメッセージを書きたいとき<br>※「git commit」のみの場合、メッセージを打つためのファイルが開く</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &apos;メッセージ&apos;</div></pre></td></tr></table></figure>
+<h2 id="前回のメッセージでコミット"><a href="#前回のメッセージでコミット" class="headerlink" title="前回のメッセージでコミット"></a>前回のメッセージでコミット</h2><p>直前のcommitを少し修正してメッセージを残すまででもないとき<br>メッセージは前回のものでコミットだけ実行される</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git commit --amend</div></pre></td></tr></table></figure>
+<h2 id="過去のcommitに戻る-reset"><a href="#過去のcommitに戻る-reset" class="headerlink" title="過去のcommitに戻る reset"></a>過去のcommitに戻る reset</h2><p>・作業ディレクトリをステージングに上げた(add)状態で、直前の状態(commitしたもの)に戻したいとき</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard HEAD</div></pre></td></tr></table></figure>
+<p>・直前の前の状態(2つ前)に戻したいとき</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard HEAD^</div></pre></td></tr></table></figure>
+<p>・コミットIDを指定して戻す場合<br>「git log」で表示されるコミットIDを指定するとそのバージョンまで戻る</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard (commit id)</div></pre></td></tr></table></figure>
+<p>・過去のバージョンにリセットしたがそれを取り消したいとき(バージョンがリセット前に戻る)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard ORIG_HEAD</div></pre></td></tr></table></figure>
+<h3 id="resetについての参考サイト"><a href="#resetについての参考サイト" class="headerlink" title="resetについての参考サイト"></a>resetについての参考サイト</h3><ul>
+<li><a href="http://qiita.com/fnobi/items/ec036c1b5d7ee5a8517c" target="_blank" rel="external">git-resetは結局何を戻すのか</a></li>
+</ul>
+<h2 id="新しい作業場を作る-branch"><a href="#新しい作業場を作る-branch" class="headerlink" title="新しい作業場を作る branch"></a>新しい作業場を作る branch</h2><p>リポジトリから作業用のスペースを作ること<br>branchは複数作れるので作業ごとにbranchを追加する<br>後にリポジトリにpush、mergeする</p>
+<p>・branchの一覧を見る(最初は「master」しかない)<br>「*」が付いてるbranchが現状のbranch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure>
+<p>・新しくbranchを作る</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch hoge</div></pre></td></tr></table></figure>
+<p>・branchを切り替える</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout hoge     // branchをhogeに変更</div></pre></td></tr></table></figure>
+<p>・branchを削除する</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d hoge</div></pre></td></tr></table></figure>
+<p>・branchを作って且つ、branchをそれに切り替える</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b hoge</div></pre></td></tr></table></figure>
+<h2 id="branchとbranchを取り込む-marge"><a href="#branchとbranchを取り込む-marge" class="headerlink" title="branchとbranchを取り込む marge"></a>branchとbranchを取り込む marge</h2><p>・指定のbranchをmargeする<br>(このときbranchはマージ元に切り替える)<br>例：branchはmasterに切り替えた状態で、下記のコマンドで「master」に「hoge」のデータがmargeされる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git merge hoge</div></pre></td></tr></table></figure>
+<h2 id="margeしたら衝突-conflict"><a href="#margeしたら衝突-conflict" class="headerlink" title="margeしたら衝突 conflict"></a>margeしたら衝突 conflict</h2><p>コンフリクトはマージしたときに起きる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git marge　hoge</div></pre></td></tr></table></figure>
+<p>branch「hoge」を「master」にmargeしたきconflict(衝突)発生</p>
+<p>・コンフリクト解消法<br>「&lt;&lt;&lt;&lt;&lt;&lt;&lt;」〜「&gt;&gt;&gt;&gt;&gt;&gt;&gt;」までの箇所が衝突箇所<br>「HEAD」が大元のbranch(この場合はmaster)<br>「hoge」は取り組んだbranch(この場合はhoge)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line">masterのコード</div><div class="line">=======</div><div class="line">hogeのコード</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; hoge</div></pre></td></tr></table></figure>
+<p>どのコードを採用するかを選んでcommitする</p>
+<h2 id="commitのidに名前を付ける-tag"><a href="#commitのidに名前を付ける-tag" class="headerlink" title="commitのidに名前を付ける tag"></a>commitのidに名前を付ける tag</h2><p>commmitのid(ユニーク)は長く管理しづらいので、タグ名で管理できる</p>
+<p>・直前のタグに名前をつけるとき　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag (tag name)</div></pre></td></tr></table></figure>
+<p>・tagの一覧がみれる</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag</div></pre></td></tr></table></figure>
+<p>・直前の変更内容を確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git show</div></pre></td></tr></table></figure>
+<p>・指定したタグの変更内容を確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git show (tag name)</div></pre></td></tr></table></figure>
+<p>・指定したcommitのidにタグ名をつける</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag (tag name) (commit id)</div></pre></td></tr></table></figure>
+<p>・指定したタグを削除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -d (tag name)</div></pre></td></tr></table></figure>
+<h2 id="コマンドを任意の文字に変更-alias"><a href="#コマンドを任意の文字に変更-alias" class="headerlink" title="コマンドを任意の文字に変更 alias"></a>コマンドを任意の文字に変更 alias</h2><p>よく使うコマンドを短縮させたいときに登録</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git config --global alias.co checkout</div><div class="line">$ git config --global alias.st status</div><div class="line">$ git config --global alias.br branch</div><div class="line">$ git config --global alias.ci commit</div></pre></td></tr></table></figure>
+<p>・上記の登録でコマンド実行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git co</div><div class="line">$ git st</div><div class="line">$ git br</div><div class="line">$ git ci</div></pre></td></tr></table></figure>
+<p>・登録したエイリアスを確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config -l</div></pre></td></tr></table></figure>
+<h2 id="ローカルで共有リポジトリを作る"><a href="#ローカルで共有リポジトリを作る" class="headerlink" title="ローカルで共有リポジトリを作る"></a>ローカルで共有リポジトリを作る</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir hoge.git</div><div class="line">$ cd hoge.git/</div><div class="line">$ git init --bare</div></pre></td></tr></table></figure>
+<p>※「–bare」は共有リポジトリを表すもの<br>管理するだけでコミットができない</p>
+<p>・作業ブランチから共有リポジトリ先を指定する</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add origin ~/hoge.git</div></pre></td></tr></table></figure>
+<p>・共有リポジトリのURLを変えたいとき</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin ~/xxx/hoge.git</div></pre></td></tr></table></figure>
+<p>・remote originを確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config -l</div></pre></td></tr></table></figure>
+<p>・共有リポジトリを削除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote rm origin</div></pre></td></tr></table></figure>
+<h2 id="共有リポジトリを操作するpush、clone、pull"><a href="#共有リポジトリを操作するpush、clone、pull" class="headerlink" title="共有リポジトリを操作するpush、clone、pull"></a>共有リポジトリを操作するpush、clone、pull</h2><p>・共有リポジトリにpush</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
+<p>・cloneでデータを取得</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone　~/hoge.git/hogehoge</div></pre></td></tr></table></figure>
+<p>・共有リポジトリのデータを取り込む pull</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull origin master</div></pre></td></tr></table></figure>
+<h2 id="変更を一時的に退避-stash"><a href="#変更を一時的に退避-stash" class="headerlink" title="変更を一時的に退避 stash"></a>変更を一時的に退避 stash</h2><p>作業途中で急遽別の案件を差し込まれたとき、作業途中のものを避けて新しくブランチを作る<br>その作業途中のものを管理するときに使う</p>
+<p>・commit前のファイルを退避</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash</div></pre></td></tr></table></figure>
+<p>・stashするものにメッセージをつける</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash　save &apos;xxx機能の途中まで&apos;</div></pre></td></tr></table></figure>
+<p>・退避しているファイルを確認</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash list</div></pre></td></tr></table></figure>
+<p>・最新のstashを取り込む(そのstashは削除される)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash pop</div></pre></td></tr></table></figure>
+<p>・N番目のstashを取り込む(そのstashは削除される)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash pop stash@&#123;N&#125;</div></pre></td></tr></table></figure>
+<p>・最新のstashを削除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash drop</div></pre></td></tr></table></figure>
+<p>・N番目のstashを削除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash drop stash@&#123;N&#125;</div></pre></td></tr></table></figure>
+<h2 id="参考サイト"><a href="#参考サイト" class="headerlink" title="参考サイト"></a>参考サイト</h2><ul>
+<li><a href="http://dotinstall.com/lessons/basic_git" target="_blank" rel="external">ドットインストール「git入門」</a></li>
+<li><a href="http://qiita.com/akasakas/items/768c0b563b96f8a9be9d" target="_blank" rel="external">色々な git stash</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文转载自&lt;/strong&gt;&lt;a href=&quot;http://qiita.com/macotok/items/16dbc031e1f6212ea4bf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git入門編~コマンドをまとめてみた&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;git入門編~コマンドをまとめてみた&lt;br&gt;使用頻度の高いコマンドの意味と使い方をまとめました&lt;/p&gt;
+&lt;h2 id=&quot;gitとは&quot;&gt;&lt;a href=&quot;#gitとは&quot; class=&quot;headerlink&quot; title=&quot;gitとは&quot;&gt;&lt;/a&gt;gitとは&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;バージョン管理システム&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;大まかな流れ&quot;&gt;&lt;a href=&quot;#大まかな流れ&quot; class=&quot;headerlink&quot; title=&quot;大まかな流れ&quot;&gt;&lt;/a&gt;大まかな流れ&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;作業ディレクトリで作業&lt;/li&gt;
+&lt;li&gt;ステージングエリア(インデックス)にadd&lt;/li&gt;
+&lt;li&gt;ローカルリポジトリにcommit&lt;/li&gt;
+&lt;li&gt;リモートリポジトリにpush&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;git初期設定&quot;&gt;&lt;a href=&quot;#git初期設定&quot; class=&quot;headerlink&quot; title=&quot;git初期設定&quot;&gt;&lt;/a&gt;git初期設定&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ git config --global user.name &amp;quot;xxxx&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ git config --global user.email &amp;quot;xxxx&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ git config --global color.ui true&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ git config -l 　　　　　　　　　// 設定が見れる&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ git config --help 　// help画面&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="版本管理" scheme="http://yoursite.com/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript数组的那些事</title>
+    <link href="http://yoursite.com/2017/07/05/JavaScript%E6%95%B0%E7%BB%84%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <id>http://yoursite.com/2017/07/05/JavaScript数组的那些事/</id>
+    <published>2017-07-05T15:10:18.000Z</published>
+    <updated>2017-07-15T12:31:11.155Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Array构造器"><a href="#Array构造器" class="headerlink" title="Array构造器"></a>Array构造器</h1><p>如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">12</span>);</div><div class="line"><span class="comment">// (12)[undefined x 12]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">''</span>);</div><div class="line"><span class="comment">// [""]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(&#123;&#125;);</div><div class="line"><span class="comment">// [Object]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>([]);</div><div class="line"><span class="comment">// [Array[0]]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="literal">null</span>);</div><div class="line"><span class="comment">// [null]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="literal">NaN</span>);</div><div class="line"><span class="comment">// Uncaught RangeError: Invalid array length(无效的数组长度，因为NaN是Number乐行，但又不是一个具体的数字因此报错)</span></div></pre></td></tr></table></figure>
+<p>注意当只传递一个参数时，它只是指定该数组的长度，并不会去填充内容</p>
+<p><img src="http://i.imgur.com/5RqOPwi.png" alt=""></p>
+<a id="more"></a>
+<p>由于传递一个参数时不会填充数组内容，因此forEach不会循环这些空内容，或者说forEach不是根据数组的长度来循环的，以下代码就不会被输出任何内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">6</span>).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(index);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>像我们自己模拟的forEach基本上都是有问题的，因为我看大部分人都是通过for循环数组的长度来模拟的forEach</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">forEach</span>(<span class="params">arr, fun</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; arr.length;i++)&#123;</div><div class="line">    fun(arr[i])</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这就说明在某些情况下数组的长度是不可靠的，并且我们没有办法去真实的模拟forEach，通过判断是不是undefined也是不准确的。</p>
+<p>由于传递一个参数时只会增加数组长度而不会填充内容，因此我们可以利用这个特点来实现自定义索引起始位置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>).concat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">`item:<span class="subst">$&#123;item&#125;</span> index<span class="subst">$&#123;index&#125;</span>`</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//item:1 index10</span></div><div class="line"><span class="comment">//item:2 index11</span></div><div class="line"><span class="comment">//item:3 index12</span></div><div class="line"><span class="comment">//item:4 index13</span></div><div class="line"><span class="comment">//item:5 index14</span></div></pre></td></tr></table></figure>
+<p>当然我们也可以这样玩</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>).concat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]).concat(<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>)).concat([<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>])</div></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/jsQYxN7.png" alt=""></p>
+<p>这种方式有个好处就是，空内容不会被循环到。</p>
+<p>它还可以用来实现相同的连续字符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>+<span class="number">1</span>).join(<span class="string">'哈'</span>) <span class="comment">//由于数组索引是从0开始的所以需要加+1才是5</span></div><div class="line"><span class="comment">//"哈哈哈哈哈"</span></div></pre></td></tr></table></figure>
+<p>我们用它来输出一个好玩的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>).concat([<span class="string">'I'</span>,<span class="string">'o'</span>,<span class="string">'v'</span>,<span class="string">'e'</span>]).concat([<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>)]).join(<span class="string">'--'</span>)</div><div class="line"><span class="comment">//"------I--o--v--e--"</span></div></pre></td></tr></table></figure>
+<p>如果你希望设置默认填充内容可以使用数组的fill方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>),fill(<span class="number">999</span>)</div><div class="line">[<span class="number">999</span>,<span class="number">999</span>,<span class="number">999</span>,<span class="number">999</span>,<span class="number">999</span>]</div></pre></td></tr></table></figure>
+<p>我们也可以使用下面这种方式来实现默认填充内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>).join(<span class="string">'5'</span>).split(<span class="string">','</span>);</div><div class="line">arr.splice(<span class="number">-1</span>,<span class="number">1</span>);</div><div class="line"><span class="comment">//["5","5","5","5","5"]</span></div></pre></td></tr></table></figure>
+<p>以上这种方式的缺点就是都会变成字符串。</p>
+<p>通过Array()方法来创建数组和用new方法来创建效果一样。</p>
+<h1 id="数组的访问"><a href="#数组的访问" class="headerlink" title="数组的访问"></a>数组的访问</h1><p>数组通过下标访问</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>][<span class="number">1</span>]</div><div class="line"><span class="comment">//3</span></div></pre></td></tr></table></figure>
+<p>当我们通过以下方式进行访问时，会被解析成连续运算返回最后一个值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>][<span class="number">1</span>,<span class="number">2</span>]</div><div class="line"><span class="comment">//4</span></div></pre></td></tr></table></figure>
+<p>由于以上[1,2]是去访问数组的下标因而被解析成了1,2结果返回的是2，所以以上输出4</p>
+<p>数组也是一种特殊的对象，因此我们也可以通过键值对的形式去访问</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line">arr.say = <span class="string">'Hello'</span>;</div><div class="line">arr.say;</div><div class="line"><span class="comment">//"Hello"</span></div></pre></td></tr></table></figure>
+<h1 id="数组与其他值的运算"><a href="#数组与其他值的运算" class="headerlink" title="数组与其他值的运算"></a>数组与其他值的运算</h1><p>数组和任何值相加都会将数组转换为字符串在进行拼接</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] + <span class="number">6</span></div><div class="line"><span class="comment">//"1,2,36"</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] + &#123;&#125;</div><div class="line"><span class="comment">//"1,2,3[object Object]"</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] + [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line"><span class="comment">//"1,2,31,2,3"</span></div></pre></td></tr></table></figure>
+<p>如果数组只有一个值，那么当这个数组和其他值相减相乘等时会被转换为数字，如果为空会被转换为0</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">5</span>] - <span class="number">2</span></div><div class="line"><span class="comment">//3</span></div></pre></td></tr></table></figure>
+<p>如果是多个值，肯定时NaN</p>
+<h1 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h1><p>使用for</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.length; i  len; i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(arr[i])</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div><div class="line"><span class="comment">// 4</span></div><div class="line"><span class="comment">// 5</span></div></pre></td></tr></table></figure>
+<p>使用forEach</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line">arr.forEach(<span class="function">(<span class="params">item</span>)=&gt;</span><span class="built_in">console</span>.log(item))</div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div><div class="line"><span class="comment">// 4</span></div><div class="line"><span class="comment">// 5</span></div></pre></td></tr></table></figure>
+<p>使用map、filter、some等方法都可以达到遍历数组的目的，不过这些方法都不能直接通过return来跳出循环，但我们可以通过以下方式来实现跳出循环</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">  arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(item === <span class="number">3</span>)&#123;</div><div class="line">    <span class="keyword">throw</span> <span class="built_in">Error</span>();</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(item);</div><div class="line">  &#125;);</div><div class="line">&#125; <span class="keyword">catch</span>(e) &#123;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>使用for in</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> k <span class="keyword">in</span> arr)&#123;</div><div class="line">  <span class="built_in">console</span>.log(arr[k]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>不过由于for in会将继承的属性和方法也遍历出来，如下所示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.a = <span class="number">123</span>;</div><div class="line"><span class="built_in">Array</span>.prototype.foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> k <span class="keyword">in</span> arr)&#123;</div><div class="line">  <span class="built_in">console</span>.log(arr[k]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div><div class="line"><span class="comment">// 123</span></div><div class="line"><span class="comment">// function ()&#123;&#125;</span></div></pre></td></tr></table></figure>
+<p>所以我们还得过滤一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.a = <span class="number">123</span>;</div><div class="line"><span class="built_in">Array</span>.prototype.foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> k <span class="keyword">in</span> arr)&#123;</div><div class="line">  <span class="keyword">if</span>(arr.hasOwnProperty(k))&#123;</div><div class="line">    <span class="built_in">console</span>.log(arr[k]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>我们还可以使用for of来实现同样的效果，并且没有以上问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> item <span class="keyword">of</span> arr)&#123;</div><div class="line">  <span class="built_in">console</span>.log(item)</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>有时我们并不希望一次性遍历所有的数组项，而是根据需求来执行，此时我们就需要用到迭代器了，数组中有一个keys方法可以生成一个迭代器，如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> iterator = arr.keys();</div><div class="line"><span class="built_in">console</span>.log(iterator.next().value);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'-----'</span>);</div><div class="line"><span class="built_in">console</span>.log(iterator.next().value);</div><div class="line"> </div><div class="line"><span class="comment">// 0</span></div><div class="line"><span class="comment">// -----</span></div><div class="line"><span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<p>返回的是索引 Array.prototype.keys</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>实际上JavaScript中的数组并非是传统意义上的数组，而是一个关联数组，索引数组只是个表面现象，我们通过下标的方式去访问数组，它最终还是会被转换为字符串的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">2</span>,<span class="number">3</span>][<span class="number">1</span>]</div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>其实它是这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">2</span>,<span class="number">3</span>][<span class="string">"1"</span>]</div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>如果说javascript中的数组不是索引数组而是关联数组，那么我们在使用for循环时为什么可以按照顺序来输出呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i  len; i++)&#123;</div><div class="line">    <span class="built_in">console</span>.log(arr[i]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>如果我们仔细观察以上代码，会发现一个啃爹的现象，我们被欺骗了很久，我们是用0 1 2这样的形式去访问的数组，自然是按照顺序输出了，再看看下面这段代码，估计你就懂了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>]);</div><div class="line"><span class="built_in">console</span>.log(arr[<span class="number">1</span>]);</div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>你可是手动去访问人家某个具体属性的，你说能不是按照顺序输出吗。</p>
+<p>这也就是为什么数组可以使用for in方法来循环的原因，因为本质上来讲数组具有对象的某些特性，也就说其实我们也可以自己用对象来模拟实现数组，不过我们需要手动去维护length属性，从另外一个角度上来讲JavaScript中的数组很大一部分只是维护了length属性，跟对象没什么两样。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Array构造器&quot;&gt;&lt;a href=&quot;#Array构造器&quot; class=&quot;headerlink&quot; title=&quot;Array构造器&quot;&gt;&lt;/a&gt;Array构造器&lt;/h1&gt;&lt;p&gt;如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// (12)[undefined x 12]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// [&quot;&quot;]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;(&amp;#123;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// [Object]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;([]);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// [Array[0]]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// [null]&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;(&lt;span class=&quot;literal&quot;&gt;NaN&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Uncaught RangeError: Invalid array length(无效的数组长度，因为NaN是Number乐行，但又不是一个具体的数字因此报错)&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意当只传递一个参数时，它只是指定该数组的长度，并不会去填充内容&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/5RqOPwi.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web前端知识体系精要</title>
+    <link href="http://yoursite.com/2017/06/25/Web%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E7%B2%BE%E8%A6%81/"/>
+    <id>http://yoursite.com/2017/06/25/Web前端知识体系精要/</id>
+    <published>2017-06-25T06:50:51.000Z</published>
+    <updated>2017-07-04T13:27:57.322Z</updated>
+    
+    <content type="html"><![CDATA[<p>Web前端技术由html、css和javascript三大部分构成，是一个庞大而复杂的知识体系，其复杂程度不低于任何一门后端语言。而我们在学习它的时候往往是先从某一个点切入，然后不断的接触和学习新的知识点，因此对于初学者很难理清整个体系的脉络结构。本文将对Web前端知识体系进行简单的梳理，对应每个知识点点到为止，不作详细介绍，如有遗漏或不正确的地方，希望共勉。<br><img src="http://i.imgur.com/wX7hd18.jpg" alt=""></p>
+<a id="more"></a>
+<h1 id="JAVASCRIPT篇"><a href="#JAVASCRIPT篇" class="headerlink" title="JAVASCRIPT篇"></a>JAVASCRIPT篇</h1><h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><p>Javascript基础语法包括：变量定义、数据类型、循环、选择、内置对象等。</p>
+<p>数据类型有string,number,boolean,undefined,object等。其中string,number和boolean是基础类型，null和undefined是JS中的两个特殊类型，object是引用类型。</p>
+<p>Javascript可以通过typeof来判断基础数据类型，但不能够准确判断引用类型，因此需要用到另外一个方法，那就是Object的toString，关于数据类型及其判断可以参考以下博客：<a href="http://www.cnblogs.com/leezhxing/p/4103893.html" target="_blank" rel="external">js基本数据类型和typeof</a>和<a href="http://www.cnblogs.com/leezhxing/p/4103893.html" target="_blank" rel="external">js基本数据类型和typeof</a></p>
+<p>JS常用的内置对象有Date、Array、JSON，RegExp等。一般来讲，Date和Array用的最频繁，JSON可以对对象和数组进行序列化和反序列化，还有一个作用就是实现<strong>对象的深拷贝</strong>。</p>
+<p>RegExp即正则表达式，是处理字符串的利器。关于数据类型和正则表达式的介绍可以参考博客：<a href="http://www.cnblogs.com/onepixel/p/5123115.html" target="_blank" rel="external">ES5对数组增强的9个API</a>和<a href="http://www.cnblogs.com/onepixel/p/5218904.html" target="_blank" rel="external">JS正则表达式精简</a></p>
+<h2 id="函数原型链"><a href="#函数原型链" class="headerlink" title="函数原型链"></a>函数原型链</h2><p>Javascript虽然没有继承概念，但Javascript在函数Function对象中建立了原型对象prototype，并以Function对象为主线，从上至下，在内部构建了一条原型链。</p>
+<p>简单来说就是建立了变量查找机制，当访问一个对象的属性时，先查找对象本身是否存在，如果不存在就去该对象所在的原型链上去找，知道Object对象为止，如果都没有找到该属性才会返回undefined。</p>
+<p>因此我们经常会利用函数的原型机制来实现JS继承。关于函数原型链可参考博客：<a href="http://www.cnblogs.com/onepixel/p/5024903.html" target="_blank" rel="external">JS原型对象和原型链</a></p>
+<h2 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h2><p>函数作用域就是变量在声明它们的函数体以及这个函数嵌套的任意函数体内都是有定义的。<strong>在JS中没有块级作用域，只有函数作用域</strong>，因此JS中还存在着另外一种怪异现象，那就是<strong>变量提升</strong>。关于作用域的介绍请参考博客：<a href="http://blog.csdn.net/yueguanghaidao/article/details/9568071" target="_blank" rel="external">函数的作用域和作用域链</a></p>
+<h2 id="函数指针this"><a href="#函数指针this" class="headerlink" title="函数指针this"></a>函数指针this</h2><p>this存在于函数中，<strong>它指向的时该函数在运行时被调用的那个对象</strong>。在实际项目中，遇到的this的坑比较多，因此需要对this作深入的理解。</p>
+<p>Function对象还提供了call、apply和bind等方法来改变函数的this指向，其中call和apply主动执行函数，bind一般在事件回调中使用，而call和apply的区别只是参数的传递方式不同。关于call、apply和bind的用法请参考博客：<a href="http://www.cnblogs.com/libin-1/p/5823025.html" target="_blank" rel="external">详解JS的call、apply和bind</a></p>
+<h2 id="构造函数new"><a href="#构造函数new" class="headerlink" title="构造函数new"></a>构造函数new</h2><p>JS中的函数既可以时构造函数又可以当做普通函数来调用，当使用new来创建对象时，对应的函数就是构造函数，通过对象来调用时就是普通函数。</p>
+<p>普通函数的创建有：显示声明、匿名定义、new Function()等三种形式。</p>
+<p>当通过new来创建一个新对象时，JS底层将新对象的原型链指向了构造函数的原型对象，于是就在新对象和函数对象之间建立了一条原型链，通过新对象可以访问到函数对象原型prototype中的方法和属性。new的详细介绍请参考博客：<a href="http://blog.csdn.net/suyu_yuan/article/details/52690793" target="_blank" rel="external">理解JS中new运算符</a></p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包其实是一个主动执行的代码块，这个代码块的特殊之处是可以永久保存局部变量，但又不污染全局变量，可以形成一个独立的执行过程，因此我们经常用闭包来定义组件。关于闭包的介绍请参考：<a href="http://blog.csdn.net/u011676417/article/details/63683399" target="_blank" rel="external">让你分分钟学会JS闭包</a></p>
+<h2 id="单线程和异步队列"><a href="#单线程和异步队列" class="headerlink" title="单线程和异步队列"></a>单线程和异步队列</h2><p>setTimeout和setInterval是JS内置的两个定时器，使用很简单，但这两个方法背后的原理确不简单。</p>
+<p>我们知道，JS是单线程语言，在浏览器中，当JS代码被加载时，浏览器会为其分配一个主线程来执行任务(函数)，主线程会形成一个全局执行环境，执行环境采用栈的方式将待执行任务按顺序依次来执行。</p>
+<p>但在浏览器中有一些任务是非常耗时的，比如http请求、定时器、事件回调等，为了保证其他任务的执行效率不被影响，<strong>JS在执行环境中维护了一个异步队列(也叫工作线程)，并将这些任务放入队列中进行等待，这些任务的执行时机并不确定，只有当主线程的任务执行完成以后，才会去检查异步队列中的任务是否需要开始执行。</strong>这就是为什么setTimeout(fn, 0)始终都要等到最后执行的原因。关于单线程和异步队列问题请参考：<a href="http://www.cnblogs.com/fullhouse/archive/2012/10/10/2718542.html" target="_blank" rel="external">setTimeout(0)</a></p>
+<h2 id="异步通讯Ajax技术"><a href="#异步通讯Ajax技术" class="headerlink" title="异步通讯Ajax技术"></a>异步通讯Ajax技术</h2><p>Ajax是浏览器专门用来和服务器进行交互的异步通讯技术，其核心对象时XMLHttpRequest，通过该对象可以创建一个Ajax请求。为了防止XSS攻击，浏览器对Ajax做了限制，不允许Ajax跨域请求服务器，就是只能访问当前域名下的url。</p>
+<p>当然，如果确信你的网站不存在跨域的风险，可以在服务端主动开启跨域请求。也可以直接通过CORS或JSONP来实现。</p>
+<p>JSONP时利用脚本(script)跨域能力来模拟Ajax请求。</p>
+<p>CORS是一个W3C标准，全称是“跨域资源共享”(Cross-origin resource sharing)。它允许浏览器向跨源服务器发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。关于CORS的介绍请参考：<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">跨域资源共享CORS详解</a></p>
+<h2 id="DOM对象document"><a href="#DOM对象document" class="headerlink" title="DOM对象document"></a>DOM对象document</h2><p>document对象里保存着整个web页面dom结构，在页面上所有的元素最终都会映射为一个dom对象。document也提供了很多api来查找特定的dom对象，比如getElementById，querySelector等等。</p>
+<h2 id="事件系统Event"><a href="#事件系统Event" class="headerlink" title="事件系统Event"></a>事件系统Event</h2><p>事件是用户与页面交互的基础，到目前为止，DOM事件从PC端的鼠标事件(mouse)发展到移动端的触摸事件(touch)和手势事件(guesture)</p>
+<p>由于DOM结构可能会多层嵌套，因此也衍生出了两种事件流：事件捕获和事件冒泡，后者最常用。利用事件冒泡机制可以实现很多功能，比如页面点击统计。关于两种事件流的介绍请参考：<a href="http://www.jianshu.com/p/8311f782f70d" target="_blank" rel="external">事件冒泡和捕获</a></p>
+<p>除此之外，在页面初始化、滚动、隐藏、返回等操作时分别内置了onload\onDOMContentLoaded、onscroll、onvisibility和onhashchange等事件，如果想要捕获这些事件，需要通过addEventLisener\attachEvent来进行绑定。</p>
+<h2 id="全局对象window"><a href="#全局对象window" class="headerlink" title="全局对象window"></a>全局对象window</h2><p>在JS中，当一段JS代码在浏览器中被加载执行，JS引擎会在内存中构建一个全局执行环境，<strong>执行环境的作用是保证所有的函数能按照正确的顺序执行</strong>，而window对象则是这个执行环境中的一个全局对象，window对象中内置了很多操作api和对象，document对象就是其中一个。关于JS执行环境的介绍请参考博客：<a href="http://www.cnblogs.com/onepixel/p/5090799.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">深入理解JS执行细节</a></p>
+<h1 id="CSS篇"><a href="#CSS篇" class="headerlink" title="CSS篇"></a>CSS篇</h1><p>css是用来对html进行修饰的一门语言。</p>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>css的选择器有很多种，常用的有类选择器、标签选择器、ID选择器、后代选择器、群组选择器、伪类选择器(before/after)、兄弟选择器(+~)、属性选择器等等。</p>
+<h2 id="定位position"><a href="#定位position" class="headerlink" title="定位position"></a>定位position</h2><p>定位一般有相对定位(relative)、绝对定位(absolute)、固定定位(fixed)，relative和absolute在移动端用的最多，fixed在移动端有兼容性问题，因此不推荐使用，在移动端替代fixed的方案是absolute+内部滚动。</p>
+<h2 id="浮动float"><a href="#浮动float" class="headerlink" title="浮动float"></a>浮动float</h2><p>设置float为left或right，就能使元素脱离文档流，向左或向右浮动。一般在做宫格模式布局时会用到，如果子元素全部设置为浮动，则父元素时塌陷的，这时就需要清除浮动，清除浮动的方法也很多，常用的方法是在元素末尾加空元素设置clear:both，更高级一点的就给父容器设置before/after来模拟一个空元素，还可以直接设置overflow/hidden。通过浮动可以实现宫格模式，行内盒子(inline-block)和table也可以。</p>
+<h2 id="盒子模型Box"><a href="#盒子模型Box" class="headerlink" title="盒子模型Box"></a>盒子模型Box</h2><p>盒子模型是css最重要的一个概念，也是css布局的基石。常见的盒子模型有块级盒子(block)和行内盒子(inline-block)，盒子最关键的几个属性包括margin、border、padding和content，这几个元素可以设置盒子和盒子之间的关系以及盒子和内容之间的关系。还有一个问题是计算盒子的大小，需要注意的是，box-sizing属性的设置会影响盒子的width和height。只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。</p>
+<h2 id="弹性布局Flex"><a href="#弹性布局Flex" class="headerlink" title="弹性布局Flex"></a>弹性布局Flex</h2><p>Flex布局的容器是一个伸缩容器，首先容器本身会根据容器中的元素动态设置自身大小；然后当Flex容器被应用一个大小时(width和height)，将会自动调整容器中的元素适应新大小。Flex容器也可以设置伸缩比例和固定宽度，还可以设置容器中元素的排列方向(横向和纵向)和是否支持元素的自动换行。有了这个神器，做页面布局的可以方便很多了。注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
+<h2 id="过渡Transition、旋转Transform"><a href="#过渡Transition、旋转Transform" class="headerlink" title="过渡Transition、旋转Transform"></a>过渡Transition、旋转Transform</h2><p>应用transform可以对元素进行平移(translate)、旋转(rotate)、放大缩小(scale)、倾斜(skew)等处理，而transition使css属性值(包括transform)在一段时间内平滑的过渡。使用transition和transform就可以实现页面的滑动切换效果。</p>
+<h2 id="动画Animation"><a href="#动画Animation" class="headerlink" title="动画Animation"></a>动画Animation</h2><p>Animation首先需要设置一个动画函数，然后以这个动画的方式来改变元素的css属性的变化，动画可以被设置为永久循环展示。和transition相比，animation设置动画效果更灵活丰富，二者还有一个区别是：transition只能通过主动改变元素的css值才能触发动画效果，而animation一旦被采用，就开始执行动画。</p>
+<h2 id="雪碧图sprite"><a href="#雪碧图sprite" class="headerlink" title="雪碧图sprite"></a>雪碧图sprite</h2><p>对于大型站点，为了减少http请求的次数，一般会将常用的小图标排列到一个大图中，页面加载时只需请求一个网络，然后在css中通过设置background-position来控制显示所需要的小图标。</p>
+<h2 id="字体图标iconfont"><a href="#字体图标iconfont" class="headerlink" title="字体图标iconfont"></a>字体图标iconfont</h2><p>所谓字体图标就是将常用的图标转化为字体资源存在文件中，通过在css中引用该字体文件，然后可以直接通过控制字体的css属性来设置图标的样式，字体图标的好处是其不受屏幕分辨率的影响，并且可以任意修改图标的颜色。</p>
+<h1 id="HTML篇"><a href="#HTML篇" class="headerlink" title="HTML篇"></a>HTML篇</h1><h2 id="Web语义化和SEO"><a href="#Web语义化和SEO" class="headerlink" title="Web语义化和SEO"></a>Web语义化和SEO</h2><p>html常规标签有html,head,body,div,span,table,ul,ol,dl,p,h1~h6,strong,form,input,img,em,i等等，另外html5还新增了很多语义化的标签，比如header,acticle,aside,section,footer,audio,radio等等。</p>
+<p>Web语义化是指使用语义恰当的标签，使页面有良好的结构，页面元素具有含义，能够让人和搜索引擎都容易理解。</p>
+<p>SEO是指在了解搜索引擎自然排名机制的基础之上，对网站进行内部及外部的调整优化，改进网站在搜索引擎中关键词的自然排名，获得更多的展现量，吸引更多目标客户点击访问网站，从而达到互联网营销及品牌建设的目标。</p>
+<p>搜索引擎通过爬虫技术获取的页面就是由一堆html标签组成的代码，人可以通过可视化的方式来判断页面上哪些内容是重点，而机器做不到。但搜索引擎会根据标签的含义来判断内容的权重，因此，在合适的位置使用恰当的标签，使整个页面语义明确，结构清晰，搜索引擎才能正确识别页面中的重要内容，并予以较高的权值。比如h1~h6这几个标签在SEO中的权值非常高，用它们做页面的标题就是一个简单的SEO优化。</p>
+<h2 id="页面渲染机制"><a href="#页面渲染机制" class="headerlink" title="页面渲染机制"></a>页面渲染机制</h2><p>页面渲染就是浏览器的渲染引擎将html代码根据css定义的规则显示在浏览器窗口中的过程。大致工作原理如下：</p>
+<ul>
+<li>用户输入网址，浏览器向服务器发出请求，服务器返回html文件；</li>
+<li>渲染引擎开始载入html代码，并将HTML中的标签转换为DOM节点，生成DOM树；</li>
+<li>如果&lt;head&gt;中引用了外部css文件，则发出css文件请求，服务器返回该文件；</li>
+<li>渲染引擎继续载入html中的&lt;body&gt;部分的代码，并开始解析前面返回的css文件，然后根据css选择器计算出节点的样式，创建渲染树；</li>
+<li>从根节点递归调用，计算每一个元素的大小、位置等，给每个节点所应该出现在屏幕上的精确坐标；</li>
+<li>如果body中的&lt;img&gt;引用了图片资源，则立即向服务器发出请求，此时渲染引擎不会等待图片下载完毕，而是继续渲染后面的代码；</li>
+<li>服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排版，因此引擎需要回过头来重新渲染这部分代码；</li>
+<li>如果此时js脚本中运行了<code>style.display=&quot;none&quot;</code>，布局被改变，引擎也需要重新渲染这部分代码；</li>
+<li>直到&lt;/html&gt;为止，页面渲染完毕。</li>
+</ul>
+<h2 id="重绘和回流"><a href="#重绘和回流" class="headerlink" title="重绘和回流"></a>重绘和回流</h2><p>当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流。比如上面的img文件加载完成后就会引起回流，每个页面至少需要一次回流，就是在页面第一次加载的时候。</p>
+<p>当渲染树中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则称为重绘。</p>
+<p>从上面可以看出，回流必将引起重绘，而重绘不一定会引起回流。</p>
+<p>会引起重绘和回流的操作</p>
+<ul>
+<li>添加、删除元素(回流+重绘)</li>
+<li>隐藏元素，display:none(回流+重绘)，visibility:hidden(只重绘，不回流)</li>
+<li>移动元素，比如改变top,left,transform的值，或者移动元素到另外一个父元素中。(重绘+回流)</li>
+<li>对style的操作(对不同的属性操作，影响不一样)</li>
+<li>还有一种使用户的操作，比如改变浏览器大小，改变浏览器的字体大小等(回流+重绘)</li>
+</ul>
+<h2 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h2><p>本地存储最原始的方式就是cookie，cookie是存放在本地浏览器的一段文本，数据以键值对的形式保存，可以设置过期时间。但是cookie不适合大量数据的存储，因为每请求一次页面，cookie都会发送给服务器，这使得cookie速度很慢而且效率也不高。因此cookie的大小被限制为4k左右(不同浏览器可能不同，分HOST)，如下所示：</p>
+<ul>
+<li>Firefox和Safari允许cookie多达4097个字节，包括名(name)、值(value)和等号。</li>
+<li>Opera允许cookie多达4096个字节，包括：名(name)、值(value)和等号。</li>
+<li>Internet Explorer允许cookie多达4095个字节，包括：名(name)、值(value)和等号。</li>
+</ul>
+<p><strong>在所有浏览器中，任何cookie大小超过限制都会被忽略，且永远不会被设置。</strong></p>
+<p>html5提供了两种在客户端存储数据的新方法：localStorage和sessionStorage，它们都是以key/value的形式来存储数据，前者是永久存储，后者的存储期限仅限于浏览器会话(session)，即当浏览器窗口关闭后，sessionStorage中的数据被清除。</p>
+<p>localStorage的存储空间大约5M左右(不同浏览器可能不同，分HOST)，这个相当于一个5M大小的前端页面的数据库，相比于cookie可以节约带宽，但localStorage在浏览器隐私模式下是不可读取的，当存储数据超过了localStorage的存储空间后会抛出异常。</p>
+<p>此外，H5还提供了逆天的websql和indexedDB，允许前端以关系型数据库的方式来存储本地数据，相对来说，这个功能目前应用的场景较少，此处不做介绍。</p>
+<h2 id="浏览器缓存机制"><a href="#浏览器缓存机制" class="headerlink" title="浏览器缓存机制"></a>浏览器缓存机制</h2><p>浏览器缓存机制是指通过HTTP协议头里的Cache-Control(或Expires)和Last-Modified(或Etag)等字段来控制文件缓存的机制。</p>
+<p>Cache-Control用于控制文件在本地缓存有效时长。最常见的，比如服务器回包：Cache-Control:max-age=600表示文件在本地应该缓存，且有效时长是600秒(从发出请求算起)。在接下来600秒内，如果有请求这个资源，浏览器不会发出HTTP请求，而是直接使用本地缓存的文件。</p>
+<p>Last-Modified是标识文件在服务器上的最新更新时间。下次请求时，如果文件缓存过期，浏览器通过If-Modified-Since字段带上这个时间，发送给服务器，由服务器比较时间戳来判断文件是否有修改。如果没有修改，服务器返回304告诉浏览器继续侍弄缓存；如果有修改，则返回200，同时返回最新的文件。</p>
+<p>Cache-Control通常与Last-Modified一起使用。一个用于控制缓存有效时间，一个在缓存失效后，向服务器查询是否有更新。</p>
+<p>Cache-Control还有一个同功能的字段：Expires。Expires的值是一个绝对的时间点，如：Expires：Thu, 10 Nov 2015 08:48:11 GMT，表示在这个时间点之前，缓存都是有效的。</p>
+<p>Expires是HTTP1.0标准中的字段，Cache-Control是HTTP1.1标准中新加的字段，功能一样，都是控制缓存的有效时间。当这两个字段同时出现时，Cache-Control是最高优先级的。</p>
+<p>Etag也是和Last-Modified一样，对文件进行标识的字段。不同的是，Etag的取值是一个对文件进行标识的特征字符。在向服务器查询文件是否有更新时，浏览器通过If-None-Match字段把特征字符串发送给服务器，由服务器和文件最新特征字符串进行匹配，来判断文件是否有更新。没有更新返回304，有更新返回200.Etag和Last-Modified可根据需求使用一个或两个同时使用。两个同时使用时，只要满足其中一个条件，就认为文件没有更新。</p>
+<p>另外有两种特殊的情况：</p>
+<ul>
+<li>手动刷新页面(F5)，浏览器会认为缓存已经过期(可能缓存还没有过期)，在请求中加上字段：Cache-Control:max-age=0，发包向服务器查询是否有文件需要更新。</li>
+<li>强制刷新页面(Ctrl+F5)，浏览器会直接忽略本地的缓存(有缓存也会认为本地没有缓存)，在请求中加上字段：Cache-Control:no-cache(或Pragma:no-cache)，发包向服务器重新拉取文件。</li>
+</ul>
+<h2 id="History操作"><a href="#History操作" class="headerlink" title="History操作"></a>History操作</h2><p>用户访问网页的历史记录通常会被保存在一个类似于栈的对象中，及history对象，点击返回就出栈，跳下一页就入栈。它提供了以下方法来操作页面的前进和后退：</p>
+<ul>
+<li><code>window.history.back()</code>返回到上一个页面</li>
+<li><code>window.history.forword()</code>进入到下一个页面</li>
+<li><code>window.history.go([delta])</code>跳转到指定页面</li>
+</ul>
+<p>HTML5对History Api进行了增强，新增了两个Api和一个事件，分别是pushState、replaceState和onpopstate</p>
+<p>pushState是往history对象里添加一个新的历史记录，即压栈。</p>
+<p>replaceState是替换history对象中的当前历史记录。</p>
+<p><strong>当点击浏览器后退按钮或js调用history.back都会触发onpopstate事件。</strong></p>
+<p>与其类似的还有一个事件：onhashchange，onhashchange是老API，浏览器支持度高，本来是用来监听hash变化的，但可以被利用来做客户端前进和后退事件的监听，而onpopstate是专门用来监听浏览器前进后退的，不仅可以支持hash，非hash的同源url也支持。</p>
+<h2 id="HTML5离线缓存"><a href="#HTML5离线缓存" class="headerlink" title="HTML5离线缓存"></a>HTML5离线缓存</h2><p>HTML5离线缓存又叫Application Cache，是从浏览器的缓存中分出来的一块缓存区，如果要在这个缓存中保存数据，可以使用一个描述文件(manifest file)，列出要下载和缓存的资源。</p>
+<p>manifest文件是简单的文本文件，它告知浏览器被缓存的内容(以及不缓存的内容)。manifest文件可分为三个部分：</p>
+<ul>
+<li>CACHE MANIFEST -在此标题下列出的文件将在首次下载后进行缓存</li>
+<li>NETWORK -在此标题下列出的文件需要与服务器连接，且不会被缓存</li>
+<li>FALLOBACK -在此标题下列出的文件规定当页面无法访问时回退页面(比如404页面)</li>
+</ul>
+<p>离线缓存为应用带来三个优势：</p>
+<ul>
+<li>离线浏览 -用户可以在应用离线时使用它们</li>
+<li>速度 -已缓存资源加载得更快</li>
+<li>减少服务器负载 -浏览器将只从服务器下载更新过或更改过的资源</li>
+</ul>
+<h2 id="Canvas和SVG"><a href="#Canvas和SVG" class="headerlink" title="Canvas和SVG"></a>Canvas和SVG</h2><p>Canvas通过Javascript来绘制2D图形。Canvas是逐像素进行渲染的。在Canvas中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。</p>
+<p>SVG是一种使用XML描述的2D图形的语言。SVG基于XML，这意味着SVG DOM中每个元素都是可用的。你可以为某个元素附加JavaScript事件处理器。在SVG中，每个被绘制的图形均被视为对象。如果SVG对象的属性发生变化，那么浏览器能够自动重现图形。</p>
+<p>Canvas和SVG相比，canvas更依赖于分辨率，不支持事件处理器，文本渲染能力弱，比较适合密集型游戏，其中的许多对象会被频繁绘制，而svg则比较适用于类似谷歌地图带有大型渲染区域的应用程序。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Web前端技术由html、css和javascript三大部分构成，是一个庞大而复杂的知识体系，其复杂程度不低于任何一门后端语言。而我们在学习它的时候往往是先从某一个点切入，然后不断的接触和学习新的知识点，因此对于初学者很难理清整个体系的脉络结构。本文将对Web前端知识体系进行简单的梳理，对应每个知识点点到为止，不作详细介绍，如有遗漏或不正确的地方，希望共勉。&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/wX7hd18.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="前端知识体系" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理解JavaScript作用域</title>
+    <link href="http://yoursite.com/2017/06/14/%E7%90%86%E8%A7%A3JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    <id>http://yoursite.com/2017/06/14/理解JavaScript作用域/</id>
+    <published>2017-06-14T03:04:49.000Z</published>
+    <updated>2017-07-18T12:54:25.390Z</updated>
+    
+    <content type="html"><![CDATA[<p>JavaScript有个特性称为作用域。尽管对于很多开发新手来说，作用域的概念不容易理解，我会尽可能地从最简单的角度向你解释它们。理解作用域能让你编写更优雅、错误更少的代码，并能帮助你实现强大的设计模式。</p>
+<a id="more"></a>
+<h2 id="什么是作用域"><a href="#什么是作用域" class="headerlink" title="什么是作用域"></a>什么是作用域</h2><p>作用域是你的代码在运行时，各个变量、函数和对象的可访问性。换句话说，作用域决定了你的代码里的变量和其他资源在各个区域中的可见性。</p>
+<h2 id="为什么需要作用域？最小访问原则"><a href="#为什么需要作用域？最小访问原则" class="headerlink" title="为什么需要作用域？最小访问原则"></a>为什么需要作用域？最小访问原则</h2><p>那么限制变量的可见性，不允许你代码中所有的东西在任意地方都可用的好处是什么？其中一个优势，是作用域为你的代码提供了一个安全层级。计算机安全中，有个常规的原则是：用户只能访问他们当前需要的东西。</p>
+<h2 id="JavaScript中的作用域"><a href="#JavaScript中的作用域" class="headerlink" title="JavaScript中的作用域"></a>JavaScript中的作用域</h2><p>在JavaScript中有两种作用域</p>
+<ul>
+<li>全局作用域</li>
+<li>局部作用域</li>
+</ul>
+<p>当变量定义在一个函数中时，变量就在局部作用域中，而定义在函数之外的变量则从属于全局作用域。每个函数在调用的时候会创建一个新的作用域。</p>
+<h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h2><p>当你在文档中（document）编写JavaScript时，你就已经在全局作用域中了。JavaScript在文档中（document）只有一个全局作用域。定义在函数之外的变量会被保存在全局作用域中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// the scope is by default global</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">'Hammad'</span>;</div></pre></td></tr></table></figure>
+<p>全局作用域里的变量能够在其他作用域中被访问和修改。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'Hammad'</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(name);  <span class="comment">//logs 'Hammad'</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logName</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(name); <span class="comment">//'name' is accessible here and everywhere else</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">logName(); <span class="comment">//logs 'Hammad'</span></div></pre></td></tr></table></figure>
+<h2 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h2><p>定义在函数中的变量就在局部作用域中。并且函数在每次调用时都有一个不同的作用域。这意味着同名变量可以用在不同的函数中。因为这些变量绑定在不同的函数中，拥有不同作用域，彼此之间不能访问。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Global Scope</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">someFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//Local Scope ##1</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">someOtherFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//Local Scope ##2</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Global Scope</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">anotherFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//Local Scope ##3</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//Global Scope</span></div></pre></td></tr></table></figure>
+<h2 id="块语句"><a href="#块语句" class="headerlink" title="块语句"></a>块语句</h2><p>块级声明包括if和switch，以及for和while循环，和函数不同，它们不会创建新的作用域。在块级声明中定义的变量从属于该块所在的作用域。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</div><div class="line">  <span class="comment">//this 'if' conditional block doesn't create a new scope</span></div><div class="line">  <span class="keyword">var</span> name = <span class="string">'Hammad'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(name); <span class="comment">//logs 'Hammad'</span></div></pre></td></tr></table></figure>
+<p>ECMAScript6引入了let和const关键字。这些关键字可以代替var。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'Hammad'</span>;</div><div class="line"></div><div class="line"><span class="keyword">let</span> likes = <span class="string">'Coding'</span>;</div><div class="line"><span class="keyword">const</span> skills = <span class="string">'Javascript and PHP'</span>;</div></pre></td></tr></table></figure>
+<p>和var关键字不同，let和const关键字支持在块级声明中创建使用局部作用域。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</div><div class="line">  <span class="comment">//this 'if' conditional block doesn't create a scope</span></div><div class="line"></div><div class="line">  <span class="comment">//name is in the global scope because of the 'var' keyword</span></div><div class="line">  <span class="keyword">var</span> name = <span class="string">'Hammad'</span>;</div><div class="line">  <span class="comment">//likes is in the local scope because of the 'let' keyword</span></div><div class="line">  <span class="keyword">let</span> likes = <span class="string">'Coding'</span>;</div><div class="line">  <span class="comment">//skills is in the local scope because of the 'const' keyword</span></div><div class="line">  <span class="keyword">const</span> skills = <span class="string">'Javascript and PHP'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(name);   <span class="comment">//logs 'Hammad'</span></div><div class="line"><span class="built_in">console</span>.log(likes);  <span class="comment">//Uncaught ReferenceError: likes is not defined</span></div><div class="line"><span class="built_in">console</span>.log(skills); <span class="comment">//Uncaught ReferenceError: skills is not defined</span></div></pre></td></tr></table></figure>
+<p>一个应用中全局作用域的生存周期与该应用相同。局部作用域只在该函数调用执行期间存在。</p>
+<h2 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h2><p>很多开发者经常弄混作用域和上下文，似乎两者是一个概念。但并非如此。作用域是我们上面讲到的那些，而上下文通常涉及你代码某些特殊部分中的this值。作用域指的是变量的可见性。而上下文指的是在相同的作用域中的this的值。我们当然也可以使用函数方法改变上下文，这个之后我们再讨论。在全局作用域中，上下文总是Window对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//logs:Window &#123;speechSynthesis:SpeechSynthesis,cache:CacheStorage,localStorage:Storage...&#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//logs:Window &#123;speechSynthesis:SpeechSynthesis,cache:CacheStorage,localStorage:Storage...&#125;</span></div><div class="line"><span class="comment">//because logFunction() is not a property of an object</span></div><div class="line">logFunction();</div></pre></td></tr></table></figure>
+<p>如果作用域定义在一个对象方法中，上下文就是这个方法所在的那个对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">  logName() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">(<span class="keyword">new</span> User).logName(); <span class="comment">//logs User&#123;&#125;</span></div></pre></td></tr></table></figure>
+<p>(new User).logName()是创建对象关联到变量并调用logName方法的一种简便形式。通过这种方式你并不需要创建一个新的变量。</p>
+<p>你可能注意到一点，就是如果你使用new关键字调用函数时上下文的值会有差异。上下文会设置为被调用的函数的实例。考虑一下上面的这个例子，用new关键字调用的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> logFunction();	<span class="comment">//logs logFunction &#123;&#125;</span></div></pre></td></tr></table></figure>
+<p>当在严格模式(strict mode)中调用函数时，上下文默认是undefined。</p>
+<h2 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h2><p>为了解决掉我们从上面学习中会出现的各种困惑，“执行环境(context)”这个词中的“环境(context)”指的是作用域而并非上下文。这是一个怪异的命名规定，但由于JavaScript的文档如此，我们也只好这样约定。</p>
+<p>JavaScript是一种单线程语言，所以它同一时间只能执行单个任务。其他任务排列在执行环境中。当JavaScript解析器开始执行你的代码，环境（作用域）默认为全局。全局环境添加到你的执行环境中，事实上这是执行环境里的第一个环境。</p>
+<p>之后，每个函数调用都会添加它的环境到执行环境中，无论是函数内部还是其他地方调用函数，都会是相同的过程。</p>
+<p>每个函数都会创建它自己的执行环境。</p>
+<p>当浏览器执行完环境中的代码，这个环境会从执行环境中弹出，执行环境中当前环境的状态会转移到父级环境。浏览器总是先执行在执行栈顶的执行环境（事实上就是你代码最里面的作用域）。</p>
+<p>全局环境只能有一个，函数环境可以有任意多个。<br>执行环境有两个阶段：创建和执行。</p>
+<h2 id="创建阶段"><a href="#创建阶段" class="headerlink" title="创建阶段"></a>创建阶段</h2><p>第一阶段是创建阶段，是函数刚被调用但代码并未执行的时候。创建阶段只要发生了3件事。</p>
+<ul>
+<li>创建变量对象</li>
+<li>创建作用域链</li>
+<li>设置上下文(this)的值</li>
+</ul>
+<h2 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h2><p>变量对象(Variable Object)也称为活动对象(activation object)，包含所有变量、函数和其他执行环境中定义的声明。当函数调用时，解析器扫描所有资源，包括函数参数、变量和其他声明。当所有东西填进一个对象，这个对象就是变量对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'variableObject'</span>: &#123;</div><div class="line">  <span class="comment">//contains function arguments,inner variable and function declarations</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>在执行环境创建阶段，作用域链在变量对象之后创建。作用域链包含变量对象。作用域链用于解析变量。当解析一个变量时，JavaScript开始从最内层沿着父级寻找所需的变量或其他资源。作用域链包含自己执行环境以及所有父级环境中包含的变量对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'scopeChain'</span>: &#123;</div><div class="line">  <span class="comment">//contains its own variable object and other variable objects of the parent execution contexts</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="执行环境对象"><a href="#执行环境对象" class="headerlink" title="执行环境对象"></a>执行环境对象</h2><p>执行环境可以用下面抽象对象表示:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">executionContextObject = &#123;</div><div class="line">  <span class="string">'scopeChain'</span>: &#123;&#125;,	 <span class="comment">//contains its own variableObject and other variableObject of the parent execution contexts</span></div><div class="line">  <span class="string">'variableObject'</span>: &#123;&#125;,	 <span class="comment">//contains function arguments,inner variable and function declarations</span></div><div class="line">  <span class="string">'this'</span>: valueOfThis</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="代码执行阶段"><a href="#代码执行阶段" class="headerlink" title="代码执行阶段"></a>代码执行阶段</h2><p>执行环境的第二个阶段就是代码执行阶段，进行其他赋值操作并且代码最终被执行</p>
+<h3 style="color:red;">词法作用域</h3>
+
+<p>词法作用域的意思是在函数嵌套中，内层函数可以访问父级作用域的变量等资源。这意味着子函数词法绑定到了父级执行环境。词法作用域有事和静态作用域有关。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">grandfather</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> name = <span class="string">'Hammad'</span>;</div><div class="line">  <span class="comment">//likes is not accessible here</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">parent</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//name is accessible here</span></div><div class="line">    <span class="comment">//likes is not accessible here</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">child</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">//innermost level of the scope chain</span></div><div class="line">      <span class="comment">//name is also accessible here</span></div><div class="line">      <span class="keyword">var</span> likes = <span class="string">'Coding'</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你可能注意到了词法作用域是向前的，意思是子执行环境可以访问name。但不是由父级向后的。意味着父级不能访问likes。这也告诉我们，在不同执行环境中同名变量优先级在执行栈由上到下增加。一个变量和另一个变量同名，内层函数（执行栈顶的环境）有更高的优先级。</p>
+<h3 style="color:red;">闭包</h3>
+
+<p>闭包的概念和我们刚学习的词法作用域紧密相关。当内部函数试着访问外部函数的作用域链（词法作用域之外的变量）时产生闭包。闭包包括它们自己的作用域链、父级作用域链和全局作用域链。</p>
+<p>闭包不仅能访问外部函数的变量，也能访问外部函数的参数。</p>
+<p>即使函数已经return，闭包仍然能访问外部函数的变量。这意味着return的函数允许持续访问外部函数的所有资源。</p>
+<p>当你的外部函数return一个内部函数，调用外部函数时return的函数并不会被调用。你必须先用一个单独的变量保存外部函数的调用，完后将这个变量当做函数来调用。看下面这个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  name = <span class="string">'Hammad'</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hi'</span> + name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">greet();  <span class="comment">//nothing happends,no errors</span></div><div class="line"></div><div class="line"><span class="comment">//the returned function from greet() gets saved in greetLetter</span></div><div class="line">greetLetter = greet();</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//calling greetLetter calls the returned function from the greet() funciton</span></div><div class="line">greetLetter();	<span class="comment">//logs 'Hi Hammad'</span></div></pre></td></tr></table></figure>
+<p>值得注意的是，即使在greet()函数return后，greetLetter函数扔可以访问greet函数的name变量。如果不使用变量赋值来调用greet函数return的函数，一种方式是使用()两次()()，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">funciton greet() &#123;</div><div class="line">  name = <span class="string">'Hammad'</span>;</div><div class="line">  <span class="keyword">return</span> fucntion() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hi'</span> + name);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">greet()();	<span class="comment">//logs 'Hi Hammad'</span></div></pre></td></tr></table></figure>
+<h3 style="color:red;">共有作用域和私有作用域</h3>
+
+<p>在许多其他编程语言中，你可以通过public、private和protected作用域来设置类中变量和方法的可见性。看下面这个PHP的例子</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Public Scope</span></div><div class="line"><span class="keyword">public</span> $property;</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Private Scope</span></div><div class="line"><span class="keyword">private</span> $property;</div><div class="line"><span class="keyword">private</span> fucntion method() &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Protected Scope</span></div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将函数从公有（全局）作用域中封装，使它们免受攻击。但在JavaScript中，没有共有作用域和私有作用域。然而我们可以用闭包实现这一特性。为了使每个函数从全局中分离出去，我们要将它们封装进如下所示的函数中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(funcito() &#123;</div><div class="line">  <span class="comment">//private scope</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>函数结尾的括号告诉解析器立即执行此函数。我们可以在其中加入变量和函数，外部无法访问。但如果我们想在外部访问它们，也就是说我们希望它们一部分是公开的，一部分是私有的。我们可以使用闭包的一种形式，称为模块模式(Module Pattern)，它允许我们用一个对象中的公有作用域和私有作用域来划分函数。</p>
+<h2 id="模块模式"><a href="#模块模式" class="headerlink" title="模块模式"></a>模块模式</h2><p>模块模式如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//do something</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">publicMethod</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">//can call privateMethod();</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>Module的return语句包含了我们的公共函数。私有函数并没有被return。函数没有被return确保了它们在Module命名空间无法访问。但我们的共有函数可以访问我们的私有函数，方便它们使用有用的函数、AJAX调用或其他东西。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Modele.publicMethod();  <span class="comment">//works</span></div><div class="line">Module.privateMethod(); <span class="comment">//Uncaught ReferenceError: peivateMathod is not defined</span></div></pre></td></tr></table></figure>
+<p>一种习惯是以下划线作为开始命名私有函数，并返回包含共有函数的匿名对象。这使它们在很长的对象中很容易被管理。像下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">_privateMethod</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//do something</span></div><div class="line">  &#125;</div><div class="line">  fucntion publicMethod() &#123;</div><div class="line">    <span class="comment">//do something</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">publicMethod</span>: publicMethod</div><div class="line">  &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h2 id="立即执行函数表达式（IIFE）"><a href="#立即执行函数表达式（IIFE）" class="headerlink" title="立即执行函数表达式（IIFE）"></a>立即执行函数表达式（IIFE）</h2><p>另一种形式的闭包是立即执行函数表达式（Immediately-Invoked Function Expression,IIFE）。这是一种在window上下文中自调用的匿名函数，也就是说this的值是window。它暴露了一个单一全局接口用来交互。如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window</span>) </span>&#123;</div><div class="line">  <span class="comment">//do anything</span></div><div class="line">&#125;)(<span class="keyword">this</span>);</div></pre></td></tr></table></figure>
+<h3 style="color:red;">使用.call()，.apply()和.bing()改变上下文</h3>
+
+<p>Call和Apply函数来改变函数调用时的上下文。这带给你神奇的编程能力（和统治世界的能力）。你只需要使用call和apply函数并把上下文当做第一个参数传入，而不是使用括号来调用函数。函数自己的参数可以在上下文后面传入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//do something </span></div><div class="line">&#125;</div><div class="line"></div><div class="line">hello(); <span class="comment">//the way you usually call it</span></div><div class="line">hello.call(context); <span class="comment">//here you can pass the context(value if this) as the first argument</span></div><div class="line">hello.apply(context); <span class="comment">//here you can pass the context(value of this) as the first augument</span></div></pre></td></tr></table></figure>
+<p>.call()和.apply()的区别是Call中其他参数用逗号分隔传入，而Apply允许你传入一个参数数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">introduce</span>(<span class="params">name, interest</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"Hi! I'm "</span> + name + <span class="string">"and I like "</span> + interest + <span class="string">"."</span>);</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'The value of this is '</span> + <span class="keyword">this</span> + <span class="string">'.'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">introduce(<span class="string">'Hammad'</span>, <span class="string">'Coding'</span>); <span class="comment">//the way you usually call it</span></div><div class="line">introduce.call(<span class="built_in">window</span>, <span class="string">'Batman'</span>, <span class="string">'to save Gotham'</span>); <span class="comment">//pass the arguments one by one the after the context</span></div><div class="line">introduce,apply(<span class="string">'Hi'</span>, [<span class="string">'Bruce Wayne'</span>, <span class="string">'businesses'</span>]); <span class="comment">//pass the arguments in an array after the context</span></div><div class="line"></div><div class="line"><span class="comment">//Output</span></div><div class="line"><span class="comment">//Hi!I'm Hammad and I like Coding.</span></div><div class="line"><span class="comment">//The value of this is [object Window].</span></div><div class="line"><span class="comment">//Hi!I'm Batman and I like to save Gotham.</span></div><div class="line"><span class="comment">//The value of this is [object Window].</span></div><div class="line"><span class="comment">//Hi!I'm bruce Wayne and I like businesses.</span></div><div class="line"><span class="comment">//The value of this is Hi.</span></div></pre></td></tr></table></figure>
+<p>Call比Apply的效率高一些。</p>
+<p>下面这个例子列举文档中所有项目，然后依次在控制台打印出来。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">land</span>=<span class="string">"en"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mata</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Things to learn<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Things to Learn to Rule the World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Learn PHP<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Learn Laravel<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Learn JavaScript<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Learn VueJS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Learn CLI<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Learn Git<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Learn Astral Paojection<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">      <span class="comment">//Saves a NodeList of all list items on the page in listItems</span></div><div class="line">      <span class="keyword">var</span> listItems = <span class="built_in">document</span>.querySelectorAll(<span class="string">'ul li'</span>);</div><div class="line">      <span class="comment">//Loops through each of the Node in the listItems Nodelist and logs its content</span></div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; listItems.length;i ++) &#123;</div><div class="line">        (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="built_in">console</span>.log(<span class="keyword">this</span>.innerHTML);</div><div class="line">        &#125;).call(listItems[i]);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="comment">//Output logs:</span></div><div class="line">      <span class="comment">//Learn PHP</span></div><div class="line">      <span class="comment">//Learn Laravel</span></div><div class="line">      <span class="comment">//Learn JavaScript</span></div><div class="line">      <span class="comment">//Learn VueJS</span></div><div class="line">      <span class="comment">//Learn CLI</span></div><div class="line">      <span class="comment">//Learn Git</span></div><div class="line">      <span class="comment">//Learn Astral Projection</span></div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>HTML文档中仅包含一个无序列表。JavaScript从DOM中选取它们。列表项会被从头到尾循环一遍。在循环时，我们把列表项的内容输出到控制台。</p>
+<p>输出语句包含在由括号包裹的函数中，然后调用call函数。相应的列表项传入call函数，确保控制台输出正确对象的innerHTML。</p>
+<p>对象可以有方法，同样函数对象也可以有方法。事实上，JavaScript函数有4个内置方法：</p>
+<ul>
+<li>Function.prototype.apply()</li>
+<li>Function.prototype.bind() (Introduced in ECMAScript5(ES5))</li>
+<li>Function.prototype.call()</li>
+<li>Function.prototype.tuString()</li>
+</ul>
+<p>Function.prototype.toString()返回函数代码的字符串表示。</p>
+<p>到现在为止，我们讨论了.call()、apply()和toString()。与Call和Apply不同，Bind并不是自己调用函数，它只是在函数调用之前绑定上下文和其他函数。在上面提到的例子中使用Bind：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">introduce</span>(<span class="params">name, interest</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"Hi! I'm "</span> + name + <span class="string">"and I like "</span> + interest + <span class="string">"."</span>);</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'The value of this is '</span> + <span class="keyword">this</span> + <span class="string">'.'</span>);</div><div class="line">&#125;).bind(<span class="built_in">window</span>, <span class="string">'Hammad'</span>, <span class="string">'Cosmology'</span>)();</div><div class="line"></div><div class="line"><span class="comment">//logs:</span></div><div class="line"><span class="comment">//Hi!I'm Hammad and I like Cosmology.</span></div><div class="line"><span class="comment">//The value of this is [object Window].</span></div></pre></td></tr></table></figure>
+<p>Bind像call函数一样用逗号分隔其他传入参数，不像apply那样用数组传入参数。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>这些概念是JavaScript的基础，如果你想钻研更深的话，理解这些很重要。我希望你对JavaScript作用域及相关概念有了更好的理解。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JavaScript有个特性称为作用域。尽管对于很多开发新手来说，作用域的概念不容易理解，我会尽可能地从最简单的角度向你解释它们。理解作用域能让你编写更优雅、错误更少的代码，并能帮助你实现强大的设计模式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端开发" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+</feed>
