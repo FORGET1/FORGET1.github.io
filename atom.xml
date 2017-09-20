@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>楊陽さん</title>
+  <title>杨阳</title>
   
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>楊陽さん</name>
+    <name>杨阳</name>
     
   </author>
   
@@ -65,7 +65,7 @@
     <link href="http://yoursite.com/2017/07/18/git%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2017/07/18/git入门/</id>
     <published>2017-07-18T12:53:39.000Z</published>
-    <updated>2017-07-18T13:05:32.385Z</updated>
+    <updated>2017-08-01T12:56:47.472Z</updated>
     
     <content type="html"><![CDATA[<p><strong>本文转载自</strong><a href="http://qiita.com/macotok/items/16dbc031e1f6212ea4bf" target="_blank" rel="external">git入門編~コマンドをまとめてみた</a></p>
 <p>git入門編~コマンドをまとめてみた<br>使用頻度の高いコマンドの意味と使い方をまとめました</p>
