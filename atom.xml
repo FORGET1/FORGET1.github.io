@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-20T09:37:40.875Z</updated>
+  <updated>2017-09-20T09:39:34.109Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/09/20/%E4%BD%BF%E7%94%A8canvas%E7%BB%98%E5%88%B6%E5%93%86%E5%95%A6A%E6%A2%A6/"/>
     <id>http://yoursite.com/2017/09/20/使用canvas绘制哆啦A梦/</id>
     <published>2017-09-20T08:31:36.000Z</published>
-    <updated>2017-09-20T09:37:40.875Z</updated>
+    <updated>2017-09-20T09:39:34.109Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>最近在学canvas元素,<code>&lt;canvas&gt;</code>标签只是图形容器，必须使用js来绘制图形。为了增强对canvas元素的理解,于是用canvas画了一个哆啦A梦来。</p>
@@ -98,7 +98,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*两只脚的空隙*/</span></div><div class="line">  cxt.beginPath();</div><div class="line">  cxt.fillStyle = <span class="string">'#fff'</span>;</div><div class="line">  cxt.arc(<span class="number">200</span>, <span class="number">529</span>, <span class="number">20</span>,<span class="built_in">Math</span>.PI, <span class="number">0</span>);</div><div class="line">  cxt.fill();</div><div class="line">  cxt.stroke();</div><div class="line">  <span class="comment">/*脚*/</span></div><div class="line">  <span class="comment">//左脚</span></div><div class="line">  cxt.beginPath();</div><div class="line">  cxt.fillStyle=<span class="string">'#fff'</span>;</div><div class="line">  cxt.moveTo(<span class="number">180</span>,<span class="number">528</span>);</div><div class="line">  cxt.lineTo(<span class="number">72</span>,<span class="number">528</span>);</div><div class="line">  cxt.bezierCurveTo(<span class="number">52</span>,<span class="number">528</span>,<span class="number">52</span>,<span class="number">558</span>,<span class="number">72</span>,<span class="number">558</span>);</div><div class="line">  cxt.lineTo(<span class="number">180</span>,<span class="number">558</span>);</div><div class="line">  cxt.moveTo(<span class="number">180</span>,<span class="number">558</span>);</div><div class="line">  cxt.bezierCurveTo(<span class="number">200</span>,<span class="number">558</span>,<span class="number">200</span>,<span class="number">528</span>,<span class="number">180</span>,<span class="number">528</span>);</div><div class="line">  cxt.fill();</div><div class="line">  cxt.stroke();</div><div class="line">  <span class="comment">//右脚</span></div><div class="line">  cxt.beginPath();</div><div class="line">  cxt.fillStyle=<span class="string">'#fff'</span>;</div><div class="line">  cxt.moveTo(<span class="number">220</span>,<span class="number">528</span>);</div><div class="line">  cxt.lineTo(<span class="number">328</span>,<span class="number">528</span>);</div><div class="line">  cxt.bezierCurveTo(<span class="number">348</span>,<span class="number">528</span>,<span class="number">348</span>,<span class="number">558</span>,<span class="number">328</span>,<span class="number">558</span>);</div><div class="line">  cxt.lineTo(<span class="number">220</span>,<span class="number">558</span>);</div><div class="line">  cxt.moveTo(<span class="number">220</span>,<span class="number">558</span>);</div><div class="line">  cxt.bezierCurveTo(<span class="number">200</span>,<span class="number">558</span>,<span class="number">200</span>,<span class="number">528</span>,<span class="number">220</span>,<span class="number">528</span>);</div><div class="line">  cxt.fill();</div><div class="line">  cxt.stroke();</div></pre></td></tr></table></figure>
 <p>完成了(〃’▽’〃)</p>
 <p><img src="http://owklx3f60.bkt.clouddn.com//17-9-20/39345376.jpg" alt=""></p>
-<p>查看完整代码请点击：<a href="">哆啦A梦</a></p>
+<p>查看完整代码请点击：<a href="https://github.com/forget1/forget1.github.io/blob/master/code/doraemon.html" target="_blank" rel="external">哆啦A梦</a></p>
 ]]></content>
     
     <summary type="html">
