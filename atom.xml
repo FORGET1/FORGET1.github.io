@@ -241,7 +241,7 @@
     <link href="http://yoursite.com/2017/07/05/JavaScript%E6%95%B0%E7%BB%84%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     <id>http://yoursite.com/2017/07/05/JavaScript数组的那些事/</id>
     <published>2017-07-05T15:10:18.000Z</published>
-    <updated>2017-07-15T12:31:11.155Z</updated>
+    <updated>2017-09-20T08:33:17.942Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Array构造器"><a href="#Array构造器" class="headerlink" title="Array构造器"></a>Array构造器</h1><p>如果参数只有一个并且是Number类型，那么就是指定数组的长度，但不能是NaN如果是多个会被当做参数列表。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">12</span>);</div><div class="line"><span class="comment">// (12)[undefined x 12]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">''</span>);</div><div class="line"><span class="comment">// [""]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(&#123;&#125;);</div><div class="line"><span class="comment">// [Object]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>([]);</div><div class="line"><span class="comment">// [Array[0]]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="literal">null</span>);</div><div class="line"><span class="comment">// [null]</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="literal">NaN</span>);</div><div class="line"><span class="comment">// Uncaught RangeError: Invalid array length(无效的数组长度，因为NaN是Number乐行，但又不是一个具体的数字因此报错)</span></div></pre></td></tr></table></figure>
@@ -319,7 +319,7 @@
     
     </summary>
     
-      <category term="前端开发" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
@@ -331,7 +331,7 @@
     <link href="http://yoursite.com/2017/06/25/Web%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E7%B2%BE%E8%A6%81/"/>
     <id>http://yoursite.com/2017/06/25/Web前端知识体系精要/</id>
     <published>2017-06-25T06:50:51.000Z</published>
-    <updated>2017-07-04T13:27:57.322Z</updated>
+    <updated>2017-09-20T08:33:25.357Z</updated>
     
     <content type="html"><![CDATA[<p>Web前端技术由html、css和javascript三大部分构成，是一个庞大而复杂的知识体系，其复杂程度不低于任何一门后端语言。而我们在学习它的时候往往是先从某一个点切入，然后不断的接触和学习新的知识点，因此对于初学者很难理清整个体系的脉络结构。本文将对Web前端知识体系进行简单的梳理，对应每个知识点点到为止，不作详细介绍，如有遗漏或不正确的地方，希望共勉。<br><img src="http://i.imgur.com/wX7hd18.jpg" alt=""></p>
 <a id="more"></a>
@@ -456,7 +456,7 @@
     
     </summary>
     
-      <category term="前端开发" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
       <category term="前端知识体系" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/"/>
@@ -468,7 +468,7 @@
     <link href="http://yoursite.com/2017/06/14/%E7%90%86%E8%A7%A3JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
     <id>http://yoursite.com/2017/06/14/理解JavaScript作用域/</id>
     <published>2017-06-14T03:04:49.000Z</published>
-    <updated>2017-07-18T12:54:25.390Z</updated>
+    <updated>2017-09-20T08:33:11.218Z</updated>
     
     <content type="html"><![CDATA[<p>JavaScript有个特性称为作用域。尽管对于很多开发新手来说，作用域的概念不容易理解，我会尽可能地从最简单的角度向你解释它们。理解作用域能让你编写更优雅、错误更少的代码，并能帮助你实现强大的设计模式。</p>
 <a id="more"></a>
@@ -580,7 +580,7 @@
     
     </summary>
     
-      <category term="前端开发" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
