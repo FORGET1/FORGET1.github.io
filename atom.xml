@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-20T09:35:26.858Z</updated>
+  <updated>2017-09-20T09:37:40.875Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/09/20/%E4%BD%BF%E7%94%A8canvas%E7%BB%98%E5%88%B6%E5%93%86%E5%95%A6A%E6%A2%A6/"/>
     <id>http://yoursite.com/2017/09/20/使用canvas绘制哆啦A梦/</id>
     <published>2017-09-20T08:31:36.000Z</published>
-    <updated>2017-09-20T09:35:26.858Z</updated>
+    <updated>2017-09-20T09:37:40.875Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>最近在学canvas元素,<code>&lt;canvas&gt;</code>标签只是图形容器，必须使用js来绘制图形。为了增强对canvas元素的理解,于是用canvas画了一个哆啦A梦来。</p>
@@ -29,7 +29,7 @@
 <p><strong>要实现的效果图</strong></p>
 <p><img src="http://owklx3f60.bkt.clouddn.com//17-9-20/39345376.jpg" alt=""></p>
 <blockquote>
-<p><a href="http://www.never-forget.top/doraemon.html" target="_blank" rel="external">在线预览</a></p>
+<p><a href="http://www.never-forget.top/code/doraemon.html" target="_blank" rel="external">在线预览</a></p>
 </blockquote>
 <p>要想绘画出这个哆啦a梦首先要掌握以下一些函数：</p>
 <ul>
