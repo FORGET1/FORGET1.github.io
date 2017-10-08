@@ -1,0 +1,224 @@
+html, body, .app {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter-active {
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+} 
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.page_0 {
+    background: url("../img/bg1.png") center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.page_1 {
+    background: url("../img/bg2.png") center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.page_2 {
+    background: url("../img/bg3.png") center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.page_3 {
+    background: black;
+}
+.title {
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+.title_0 {
+    /*width: 90px;*/
+    width: 109px;
+    position: absolute;
+    right: 30px;
+    top: 23.58%;
+}
+.title_1 {
+    /*width: 90px;*/
+    width: 109px;
+    position: absolute;
+    left: 23px;
+    top: 24.98%;
+}
+.title_2 {
+    /*width: 88px;*/
+    width: 110px;
+    position: absolute;
+    left: 30px;
+    top: 20.58%;
+}
+.sub_title {
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+    -webkit-transition-delay: 1.5s;
+    transition-delay: 1.5s;
+}
+.sub_title_0 {
+    /* width: 165px; */
+    width: 206px;
+    position: absolute;
+    right: 30px;
+    top: 56.09%;
+}
+.sub_title_1 {
+    /*width: 83px;*/
+    width: 104px;
+    position: absolute;
+    left: 30px;
+    top: 57.09%;
+}
+.sub_title_2 {
+    /*width: 136px;*/
+    width: 170px;
+    position: absolute;
+    left: 30px;
+    top: 53.09%;
+}
+.show_title .title, .show_title .sub_title {
+    opacity: 1;
+}
+.swiper-container .swiper-button-next {
+    position: absolute;
+    top: 95%;
+    right: 10px;
+    height: 32px;
+    width: 32px;
+    background: url("../img/arrow.png") center center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.swiper-button-next.swiper-button-disabled {
+    opacity: 0;
+}
+.stage {
+    height: 100%;
+    width: 100%;
+    transition: all 1s;
+    background: url("../img/stage.png") center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.blur_stage { /* 舞台模糊样式 */
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
+.light {
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+    position: absolute;
+}
+.light_0 {
+    left: 12%;
+    top: 15%;
+}
+.light_1 {
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.light_2 {
+    right: 12%;
+    top: 15%;
+}
+.show_light.light {
+    opacity: 1;
+}
+.word {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+    font-weight: lighter;
+}
+.show_word {
+    opacity: 1;
+}
+.blur_stage .show_word {
+    opacity: 0;
+}
+.button {
+    position: absolute;
+    background: white;
+    -webkit-border-radius: 22px;
+    border-radius: 22px;
+    width: 133px;
+    bottom: 150px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    opacity: 0;
+    -webkit-transition: opacity 3s, transform 3s;
+    transition: opacity 3s, transform 3s;
+    text-align: center;
+    color: #93c8ff;
+    height: 45px;
+    width: 133px;
+    line-height: 44px;
+    font-size: 16px;
+    transform: translateY(300px);
+}
+.blur_stage + .button {
+    opacity: 1;
+    transform: translateY(0);
+}
+.products {
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: url("../img/products.png") center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.get_card {
+    position: absolute;
+    bottom: -55px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid white;
+}
+.card {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: url("../img/card.png") center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
